@@ -1,3 +1,8 @@
+/**
+*Clase que contiene el método main
+*@version 0.2
+*@author José Antonio Yáñez Jiménez
+*/
 class cinerama
 	{
 	//VARIABLES Y CONSTANTES POR DEFECTO

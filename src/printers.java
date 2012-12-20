@@ -1,9 +1,9 @@
-class printers
 /**
-*Cinerama for IES Galileo
-*version 0.1
-*Author José Antonio Yáñez Jiménez
+*Clase que contiene las salidas por pantalla
+*@version 0.2
+*@author José Antonio Yáñez Jiménez
 */
+class printers
 	{
 	public static void showLogo()
 		{
@@ -25,7 +25,7 @@ class printers
 		System.out.print("\n\t(2) Relleno 2:");
 		System.out.print("\n\t\tCine con 2 salas");
 		System.out.print("\n\t\t2 proyecciones aleatorias");
-		System.out.print("\nRelleno (1-2):");
+		System.out.print("\nRelleno (1-3):");
 		}
 	public static void showInfo(String info)
 		{
@@ -37,6 +37,7 @@ class printers
 		System.out.print("\n\t(1) Nuevo cliente");
 		System.out.print("\n\t(2) Ocupación actual de las salas");
 		System.out.print("\n\t(3) Cerrar caja");
+		System.out.print("\nOpción a escoger (1-3):");
 		}
 	public static void showRoomOccupation(int[][] seatcounter)
 		{
@@ -47,6 +48,6 @@ class printers
 			System.out.print(" ("+(seatcounter[i][1]*100)/seatcounter[i][0]+"%)");
 			}
 		System.out.print("\n\nOperación completada, pulsa una tecla e intro para continuar...");
-		cs1.Keyboard.readString();
+		kread.readString();
 		}	
 	}

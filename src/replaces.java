@@ -1,3 +1,8 @@
+/**
+*Clase que contiene los métodos que modifican nuestros arrays
+*@version 0.2
+*@author José Antonio Yáñez Jiménez
+*/
 class replaces
 	{
 	public static void replaceRoom(int[][] showroom,int seats, int roomnumber, int[][] seatcounter)

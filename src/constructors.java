@@ -12,7 +12,7 @@
    *En la primera dimensión hacemos referencia a cada sala.
    *En la segunda dimensión hacemos referencia a las filas de la sala.
    *En la tercera dimensión hacemos referencia a las columnas de la sala.
-   *@param roomsatrins[][] Tamaño de cada sala indicado en filas y columnas
+   *@param roomsatribs Tamaño de cada sala indicado en filas y columnas
    *@param AVAILABLE constante que define como denominar a las butacas libres
    *@return devuelve el nuevo array de las salas de cine
    */
@@ -127,9 +127,11 @@
 		return seatcounter;
 		}
    /**
-	*
-	*
-	*
+	*Método que construye un array para guardar posiciones del público que se
+	*distribuirá de forma aleatoria.
+	*@param maxpeople Número total de personas que habrá
+	*@param positions Las longitud de la segunda dimensión (normalmente 2, fila y columna que ocupará)
+	*@return Array en el que colocar a la gente, con todo fijado a MAX_VALUE (puede darse el caso de que una persona esté en la posición 0 - 0)
 	*/
 	public static int[][] makeRandomCounter(int maxpeople, int positions)
 		{
