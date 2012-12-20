@@ -1,5 +1,5 @@
 !693;s
-A
+J
 SAU0PATH+=%<JGRASP_PATHS>%;
 SCU0PATH+=%<JGRASP_PATHS>%;\012CYGWIN=nodosfilewarning
 S+U0PATH+=%<JGRASP_PATHS>%;\012CYGWIN=nodosfilewarning
@@ -14,11 +14,17 @@ s#m0src
 s#n0classes
 s#p0doc
 s#q0test
-!76;g
+!142;g
+%\011src%ssamples.java
+%\011src%sinputs.java
+%\011src%sutils.java
+%\011src%sconstructors.java
 %\011src%scinerama.java
 %\011src%sprinters.java
-%\011src%sconstructors.java
-!67;f
+!124;f
+%	src%ssamples.java
+%	src%sinputs.java
+%	src%sutils.java
+%	src%sconstructors.java
 %	src%scinerama.java
 %	src%sprinters.java
-%	src%sconstructors.java

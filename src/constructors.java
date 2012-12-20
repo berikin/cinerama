@@ -1,23 +1,35 @@
+/**
+*Clase que contiene los métodos que construyen
+*las salas de cine, las peliculas
+*@version 0.2
+*@author José Antonio Yáñez Jiménez
+*/  
    class constructors
    {
    /**
-   *Método que crea una nueva sala de cine
-   *@param rows Filas que tendrá nuestra sala de cine
-   *@param cols Columnas que tendrá nuestra sala de cine
+   *Método que crea las salas de cine.
+   *Definimos un array de 3 dimensiones para poder guardar varias salas
+   *En la primera dimensión hacemos referencia a cada sala.
+   *En la segunda dimensión hacemos referencia a las filas de la sala.
+   *En la tercera dimensión hacemos referencia a las columnas de la sala.
+   *@param roomsatrins[][] Tamaño de cada sala indicado en filas y columnas
    *@param AVAILABLE constante que define como denominar a las butacas libres
-   *@return devuelve el nuevo array de la sala de cine creada
+   *@return devuelve el nuevo array de las salas de cine
    */
-      public static String[][] makeShowRoom(int rows, int cols, String AVAILABLE)
+      public static int[][][] makeRooms(int[][] roomsatribs, int AVAILABLE)
       {
-         String[][] showroom = new String[rows][cols];
-         for (int i=0; i<showroom.length; i++)
+         int[][][] showrooms=new int[roomsatribs.length][roomsatribs[0][0]][roomsatribs[0][1]];
+         for (int i=0; i<showrooms.length; i++)
          {
-            for (int j=0; j<showroom[0].length; j++)
+            for (int j=0; j<roomsatribs[i][0]; j++)
             {
-               showroom[i][j]=AVAILABLE;
+               for (int x=0; x<roomsatribs[i][1]; x++)
+               {
+                  showrooms[i][j][x]=AVAILABLE;
+               }
             }
          }
-         return showroom;
+         return showrooms;
       }
    /**
    *Método que genera el array con las peliculas del cine

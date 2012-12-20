@@ -1,15 +1,27 @@
 class cinerama
 	{
+	//VARIABLES Y CONSTANTES POR DEFECTO
+	static final int AVAILABLE=1;
+	static final int USED=2;
 	public static void main(String[] args)
 		{
-		//VARIABLES Y CONSTANTES POR DEFECTO
-		final String AVAILABLE="Libre";
-		final String USED="Usada";
-		printers.showLogo();
-		String[][] films=samples.makeFilms(4,2);
-		for (int i=0; i<films.length; i++)
+		int[][][] rooms;
+		String[][] films;
+		int sample=inputs.selectSample();
+		switch (sample)
 			{
-			System.out.print("\n"+films[i][0]+" - "+films[i][1]);
+		   case 1:
+				rooms=samples.cinema1();
+				films=samples.showfilms1();
+		      break;
+		   case 2:
+				rooms=samples.cinema2();
+				films=samples.showfilms2();
+		      break;
+			default:
+				rooms=samples.cinema1();
+				films=samples.showfilms1();
+				break;
 			}
 		}
 	}
