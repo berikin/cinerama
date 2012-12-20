@@ -57,13 +57,16 @@
 		String[][] films=constructors.makeFilms(2,0);
 		return films;
 		}
-	public static void fillroom1(int[][][] showrooms)
+	/**
+	*Método que rellena las salas al 50% de la capacidad de las mismas
+	*@param showrooms Salas que serán rellenadas
+	*@param seatcounter Contador de butacas totales y disponibles
+	*/
+	public static void fillrooms(int[][][] showrooms, int[][] seatcounter)
 		{
-		boolean rows_limit=false, cols_limit=false;
-		int rows=0, cols=0, max_people=0, random_row=0, random_col=0;
 		for (int i=0; i<showrooms.length;i++)
 			{
-			replaces.replace();
+			replaces.replaceRoom(showrooms[i],50,i,seatcounter);
 			}
 		}
    }

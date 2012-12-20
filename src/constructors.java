@@ -102,5 +102,43 @@
          }
          return films;
       }
-   
+	/**
+	*Método que rellena el contador de los asientos de sala
+	*@param showroom Sala de la que queremos conocer el número de asientos
+	*@param seatcounter Posición del contador en el que apuntaremos el número de asientos
+	*/
+	public static void fillSeatCounter(int[][] showroom,int[] seatcounter)
+		{
+		int[] roomsize=utils.roomSize(showroom);
+		seatcounter[0]=(roomsize[0]*roomsize[1]);
+		}
+	/**
+	*Método que construye el contador de los asientos de sala, libres y ocupados
+	*@param showrooms Salas que tendrá que serán manejadas por el contador de asientos
+	*@return seatcounter Array con el número de asientos de todas las salas
+	*/
+	public static int[][] makeSeatCounter(int[][][] showrooms)
+		{
+		int[][] seatcounter=new int[showrooms.length][2];
+		for (int i=0; i<seatcounter.length;i++)
+			{
+			fillSeatCounter(showrooms[i],seatcounter[i]);
+			}
+		return seatcounter;
+		}
+   /**
+	*
+	*
+	*
+	*/
+	public static int[][] makeRandomCounter(int maxpeople, int positions)
+		{
+		int[][] randompeople=new int[maxpeople][positions];
+		for (int i=0;i<randompeople.length;i++)
+			{
+			randompeople[i][0]=Integer.MAX_VALUE;
+			randompeople[i][1]=Integer.MAX_VALUE;
+			}
+		return randompeople;
+		}
    }

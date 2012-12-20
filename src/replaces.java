@@ -1,40 +1,38 @@
 class replaces
 	{
-	public static void replaceRoom(int[][] room,int roomnumber,int[][] replaces)
+	public static void replaceRoom(int[][] showroom,int seats, int roomnumber, int[][] seatcounter)
 		{
-		for (int j=0; j<showrooms[0].length;j++)
-			{
-			if (showrooms[i][j][0]==0)
-				{
-				rows_limit=true;
-				}
-			else
-				{
-				rows=j;
-				}
-			if (rows_limit)
-				break;
-			}
-		for (int j=0; j<showrooms[i][0].length;x++)
-			{
-			if (showrooms[i][0][j]==0)
-				{
-				cols_limit=true;
-				}
-			else
-				{
-				cols=j;
-				}
-			if (cols_limit)
-				break;
-			}
-		rows_limit=false;
-		cols_limit=false;
-		max_people=(rows*cols)/2; //La mitad del total de asientos
+		int max_people=0, random_row=0, random_col=0;
+		boolean repeated=false;
+		int randompeoplecounter=0;
+		int[] roomsize=utils.roomSize(showroom);
+		max_people=((roomsize[0]*roomsize[1])*seats)/100;
+		int[][] randompeople=constructors.makeRandomCounter(max_people,2);
+		printers.showInfo("\nRellenando la sala "+(roomnumber+1)+" con "+max_people+" asistentes. Por favor espere... ");
 		for (int i=0;i<max_people; i++)
 			{
-			int[] randompeople=new int[max_people];
-			random_row=
+			randompeoplecounter++;
+			do
+				{
+				random_row=utils.random(0,roomsize[0]);
+				random_col=utils.random(0,roomsize[1]);
+				for (int j=0; j<randompeoplecounter; j++)
+					{
+					repeated=false;
+					if (randompeople[j][0]==random_row & randompeople[j][1]==random_col)
+						{
+						repeated=true;
+						break;
+						}
+					}
+				}while(repeated);
+			randompeople[i][0]=random_row;
+			randompeople[i][1]=random_col;
+			}
+		for (int i=0;i<randompeople.length;i++)
+			{
+			showroom[randompeople[i][0]][randompeople[i][1]]=2;
+			seatcounter[roomnumber][1]++;
 			}
 		}
 	}

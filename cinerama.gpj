@@ -14,17 +14,21 @@ s#m0src
 s#n0classes
 s#p0doc
 s#q0test
-!142;g
+!186;g
 %\011src%ssamples.java
 %\011src%sinputs.java
+%\011src%sreplaces.java
 %\011src%sutils.java
 %\011src%sconstructors.java
 %\011src%scinerama.java
 %\011src%sprinters.java
-!124;f
+%\011src%shola.java
+!162;f
 %	src%ssamples.java
 %	src%sinputs.java
+%	src%sreplaces.java
 %	src%sutils.java
 %	src%sconstructors.java
 %	src%scinerama.java
 %	src%sprinters.java
+%	src%shola.java
