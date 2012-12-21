@@ -3,7 +3,7 @@
 *@version 0.2
 *@author José Antonio Yáñez Jiménez
 */
-class inputs
+public class inputs
 	{
 	/**
 	*Método que muestra el menú de selección
@@ -13,9 +13,9 @@ class inputs
 	public static int selectSample()
 		{
 		int option;
+		printers.showLogo();
 		do
 			{
-			printers.showLogo();
 			printers.showSamples();
 			option=kread.readInt();
 			if (option<1 || option>3)
@@ -60,7 +60,7 @@ class inputs
 					utils.pause(2000);				
 					break;
 				}
-			}while(1==1);
+			} while(1==1);
 		}
 	/**
 	*Método que añade un nuevo cliente al cine

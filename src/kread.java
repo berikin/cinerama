@@ -3,7 +3,7 @@ import java.io.*;
 *Clase que contiene los métodos para obtener
 *entradas de teclado
 *@version 0.2
-*@author José Antonio Yáñez Jiménez
+*@author José Antonio Yáñeez Jiménez
 */
 public class kread 
 	{
