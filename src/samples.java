@@ -19,7 +19,7 @@
 	public static int[][][] cinema1()
 		{
 		int[][] roomsatribs={{10,8},{8,6},{8,5},{9,7}};
-		int[][][] rooms=constructors.makeRooms(roomsatribs,cinerama.AVAILABLE);
+		int[][][] rooms=constructors.makeRooms(roomsatribs,java_console.AVAILABLE);
 		return rooms;
 		}
 	/**
@@ -32,7 +32,7 @@
 	public static int[][][] cinema2()
 		{
 		int[][] roomsatribs={{12,12},{10,8}};
-		int[][][] rooms=constructors.makeRooms(roomsatribs,cinerama.AVAILABLE);
+		int[][][] rooms=constructors.makeRooms(roomsatribs,java_console.AVAILABLE);
 		return rooms;
 		}
 	/**

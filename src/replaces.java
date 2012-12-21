@@ -13,7 +13,7 @@ class replaces
 		int[] roomsize=utils.roomSize(showroom);
 		max_people=((roomsize[0]*roomsize[1])*seats)/100;
 		int[][] randompeople=constructors.makeRandomCounter(max_people,2);
-		printers.showInfo("\nRellenando la sala "+(roomnumber+1)+" con "+max_people+" asistentes. Por favor espere... ");
+		//printers.showInfo("\nRellenando la sala "+(roomnumber+1)+" con "+max_people+" asistentes. Por favor espere... ");
 		for (int i=0;i<max_people; i++)
 			{
 			randompeoplecounter++;

@@ -7,7 +7,6 @@ class printers
 	{
 	public static void showLogo()
 		{
-		System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		System.out.print("\n--------------------------");
 		System.out.print("\n   Cinerama IES Galileo");
 		System.out.print("\n--------------------------\n");
@@ -47,7 +46,8 @@ class printers
 			System.out.print("\n\tSala "+(i+1)+": "+seatcounter[i][1]+" de "+seatcounter[i][0]);
 			System.out.print(" ("+(seatcounter[i][1]*100)/seatcounter[i][0]+"%)");
 			}
-		System.out.print("\n\nOperación completada, pulsa una tecla e intro para continuar...");
-		kread.readString();
+		System.out.print("\n\nOperación completada, pulsa el botón para continuar...");
+		java_console.a=1;
+		do{utils.pause(1000);}while(java_console.a==1);
 		}	
 	}
