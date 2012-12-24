@@ -49,4 +49,74 @@ class printers
 		System.out.print("\n\nOperación completada, pulsa una tecla e intro para continuar...");
 		cs1.Keyboard.readString();
 		}	
+	/**
+	*
+	*
+	*
+	*/
+	public static void showRoom(int[][] room)
+		{
+		System.out.printf("%-11s"," ");
+		for (int i=0; i<room[0].length;i++)
+			{
+				{
+				System.out.printf("%-13s","*************");
+				}
+			}
+		System.out.print("**");
+		System.out.print("\n");
+		System.out.printf("%-12s"," ");
+		for (int i=0; i<room[0].length;i++)
+			{
+			System.out.printf("%-13s","*************");
+			}
+		System.out.print("\n\n\n");
+		for (int i=0; i<room.length; i++)
+			{
+			System.out.printf("%-8s","       |");
+			for (int j=0; j<room[0].length; j++)
+				{
+				if (j==(room[0].length/2))
+					{
+					System.out.printf("%-8s"," |     |");	
+					}
+				System.out.printf("%13s","------------");
+				}
+			System.out.print("\n");
+			System.out.printf("%-6s%-2s","Fl. "+(i+1)," |");
+			for (int j=0; j<room[0].length; j++)
+				{
+				if (j==(room[0].length/2))
+					{
+					System.out.printf("%-8s","||     |");	
+					}
+				if (room[i][j]==1)
+					{	
+					if (j==(room[0].length-1))
+						System.out.printf("%-12s%1s","|  Libre  ","|");
+					else
+						System.out.printf("%-13s","|  Libre  ");
+					}
+				else if (room[i][j]==2)
+					{
+					if (j==(room[0].length-1))
+						System.out.printf("%-12s%1s","|  Ocupada ","|");
+					else
+						System.out.printf("%-13s","|  Ocupada  ");
+					}
+				}
+			System.out.print("\n");
+			System.out.printf("%8s","_______|");
+			for (int j=0; j<room[0].length; j++)
+				{
+				if (j==(room[0].length/2))
+					{
+					System.out.printf("%-8s"," |     |");	
+					}
+				System.out.printf("%13s","------------");
+				}
+			System.out.print("\n");
+			}
+		cs1.Keyboard.readString();
+		}
 	}

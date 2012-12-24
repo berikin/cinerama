@@ -48,6 +48,7 @@ public class inputs
 				{
 			   case 1:
 					//newclient(rooms,films,seatcounter);
+					printers.showRoom(rooms[0]);
 			      return false;
 				case 2:
 					printers.showLogo();
