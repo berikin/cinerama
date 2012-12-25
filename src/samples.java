@@ -18,7 +18,7 @@
 	*/
 	public static int[][][] cinema1()
 		{
-		int[][] roomsatribs={{10,8},{8,6},{8,5},{9,7}};
+		int[][] roomsatribs={{10,20},{8,12},{8,10},{9,8}};
 		int[][][] rooms=constructors.makeRooms(roomsatribs,cinerama.AVAILABLE);
 		return rooms;
 		}
@@ -58,15 +58,16 @@
 		return films;
 		}
 	/**
-	*Método que rellena las salas al 50% de la capacidad de las mismas
+	*Método que rellena las salas al con un porcentaje que varía entre
+	*el 5 y el 60% de la capacidad de las mismas
 	*@param showrooms Salas que serán rellenadas
 	*@param seatcounter Contador de butacas totales y disponibles
 	*/
-	public static void fillrooms(int[][][] showrooms, int[][] seatcounter)
+	public static void fillrooms(int[][][] showrooms, int[][] seatcounter, int min_percent, int max_percent)
 		{
 		for (int i=0; i<showrooms.length;i++)
 			{
-			replaces.replaceRoom(showrooms[i],50,i,seatcounter);
+			replaces.randomReplaceRoom(showrooms[i],(utils.random(min_percent,max_percent)),i,seatcounter);
 			}
 		}
    }

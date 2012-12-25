@@ -106,11 +106,13 @@
 	*Método que rellena el contador de los asientos de sala
 	*@param showroom Sala de la que queremos conocer el número de asientos
 	*@param seatcounter Posición del contador en el que apuntaremos el número de asientos
+	*@param aisles Número de pasillos que tendrá la sala de cine
 	*/
-	public static void fillSeatCounter(int[][] showroom,int[] seatcounter)
+	public static void fillSeatCounter(int[][] showroom,int[] seatcounter, int aisles)
 		{
 		int[] roomsize=utils.roomSize(showroom);
 		seatcounter[0]=(roomsize[0]*roomsize[1]);
+		seatcounter[2]=aisles;
 		}
 	/**
 	*Método que construye el contador de los asientos de sala, libres y ocupados
@@ -119,10 +121,19 @@
 	*/
 	public static int[][] makeSeatCounter(int[][][] showrooms)
 		{
-		int[][] seatcounter=new int[showrooms.length][2];
+		int[] roomsize;
+		int[][] seatcounter=new int[showrooms.length][3];
 		for (int i=0; i<seatcounter.length;i++)
 			{
-			fillSeatCounter(showrooms[i],seatcounter[i]);
+			roomsize=utils.roomSize(showrooms[i]);
+			if (roomsize[1]>=10)
+				{
+				fillSeatCounter(showrooms[i],seatcounter[i],2);
+				}
+			else
+				{
+				fillSeatCounter(showrooms[i],seatcounter[i],1);
+				}
 			}
 		return seatcounter;
 		}

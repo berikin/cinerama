@@ -34,6 +34,19 @@ class utils
 			{}
 		}
 	/**
+	*Método que genera una pausa hasta que se pulsa la tecla intro
+	*/
+	static void returnPause()
+		{
+		try
+			{
+			int a=System.in.read();
+			}
+		catch (java.io.IOException e)
+			{
+			}
+		}
+	/**
 	*Método que calcula el tamaño de una sala de cine
 	*El método es necesario ya que no todas las salas tienen por qué
 	*tener el mismo tamaño, lo que implica que habrá posiciones en el
@@ -71,7 +84,7 @@ class utils
 			if (cols_limit)
 				break;
 			}
-		int[] size={rows,cols};
+		int[] size={(rows+1),(cols+1)}; //Sumamos 1 por la columna y fila 0, que siempre existen
 		return size;
 		}
 	}

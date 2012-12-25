@@ -5,8 +5,13 @@
 */
 class cinerama
 	{
-	//VARIABLES Y CONSTANTES POR DEFECTO
+	/**
+	*Constante para definir las butacas libres
+	*/
 	static final int AVAILABLE=1;
+	/**
+	*Constante para definir las butacas ocupadas
+	*/
 	static final int USED=2;
 	public static void main(String[] args)
 		{
@@ -21,7 +26,7 @@ class cinerama
 				rooms=samples.cinema1();
 				films=samples.showfilms1();
 				seatcounter=constructors.makeSeatCounter(rooms);
-				samples.fillrooms(rooms,seatcounter);
+				samples.fillrooms(rooms,seatcounter,99,100);
 		      break;
 		   case 2:
 				rooms=samples.cinema1();
@@ -43,5 +48,9 @@ class cinerama
 			{	
 			exitmenu=inputs.mainMenu(rooms,films,seatcounter);
 			}while(exitmenu==false);
+		do
+			{	
+			exitmenu=inputs.recaudatoryMenu(rooms,films,seatcounter);
+			}while(exitmenu==false);		
 		}
 	}

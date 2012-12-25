@@ -5,7 +5,7 @@
 */
 class replaces
 	{
-	public static void replaceRoom(int[][] showroom,int seats, int roomnumber, int[][] seatcounter)
+	public static void randomReplaceRoom(int[][] showroom,int seats, int roomnumber, int[][] seatcounter)
 		{
 		int max_people=0, random_row=0, random_col=0;
 		boolean repeated=false;
@@ -19,8 +19,8 @@ class replaces
 			randompeoplecounter++;
 			do
 				{
-				random_row=utils.random(0,roomsize[0]);
-				random_col=utils.random(0,roomsize[1]);
+				random_row=utils.random(0,(roomsize[0]-1));
+				random_col=utils.random(0,(roomsize[1]-1));
 				for (int j=0; j<randompeoplecounter; j++)
 					{
 					repeated=false;
