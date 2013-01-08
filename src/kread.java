@@ -2,30 +2,29 @@ import java.io.*;
 /**
 *Clase que contiene los métodos para obtener
 *entradas de teclado
-*@version 0.2
+*@version 0.3
 *@author José Antonio Yáñeez Jiménez
 */
 public class kread 
 	{
     public static String readString() 
 	 	{
-		String texto = null;
+		String text = null;
 		try 
 			{
-			BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
-			texto = teclado.readLine();
+			BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+			text = keyboard.readLine();
 			}
 		catch (IOException e)
 			{}
-		return texto;
+		return text;
 		}
-
-	public static int parseInt(String texto) 
+	public static int parseInt(String text) 
 		{
 		int i = 0;
 		try
 			{
-			i = Integer.parseInt(texto);
+			i = Integer.parseInt(text);
 			}
 		catch (NumberFormatException e) 
 			{
@@ -33,27 +32,8 @@ public class kread
 			}
 		return i;
 		}
-
-	public static float real(String texto) 
-		{
-		float i = 0;
-		try 
-			{
-			i = Float.parseFloat(texto);
-			} 
-		catch (NumberFormatException e) 
-			{
-			return Float.MIN_VALUE;
-			}
-		return i;
-		}
-
 	public static int readInt() 
 		{
 		return parseInt(readString());
-		}
-	public static float readFloat() 
-		{
-		return real(readString());
 		}
 	}

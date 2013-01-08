@@ -2,7 +2,7 @@
 *Clase que contiene los métodos que generan
 *Salas de cine de muestra, peliculas de muestra
 *y rellenan asientos con público de muestra
-*@version 0.2
+*@version 0.3
 *@author José Antonio Yáñez Jiménez
 */
    class samples
@@ -18,8 +18,10 @@
 	*/
 	public static int[][][] cinema1()
 		{
-		int[][] roomsatribs={{10,20},{8,12},{8,10},{9,8}};
-		int[][][] rooms=constructors.makeRooms(roomsatribs,cinerama.AVAILABLE);
+		int[][] roomsatribs={{10,20,2},{8,12,1},{8,10,2},{9,8,1}};
+		int[] max_room={10,20};
+		int[][][] rooms=constructors.makeRooms(max_room,roomsatribs,cinerama.AVAILABLE);
+		cinerama.filminfo=constructors.makeFilmInfo(rooms,roomsatribs);
 		return rooms;
 		}
 	/**
@@ -31,8 +33,10 @@
 	*/
 	public static int[][][] cinema2()
 		{
-		int[][] roomsatribs={{12,12},{10,8}};
-		int[][][] rooms=constructors.makeRooms(roomsatribs,cinerama.AVAILABLE);
+		int[][] roomsatribs={{12,12,2},{10,8,1}};
+		int[] max_room={12,12};
+		int[][][] rooms=constructors.makeRooms(max_room,roomsatribs,cinerama.AVAILABLE);
+		cinerama.filminfo=constructors.makeFilmInfo(rooms,roomsatribs);
 		return rooms;
 		}
 	/**
@@ -61,13 +65,13 @@
 	*Método que rellena las salas al con un porcentaje que varía entre
 	*el 5 y el 60% de la capacidad de las mismas
 	*@param showrooms Salas que serán rellenadas
-	*@param seatcounter Contador de butacas totales y disponibles
+	*@param filminfo Contador de butacas totales y disponibles
 	*/
-	public static void fillrooms(int[][][] showrooms, int[][] seatcounter, int min_percent, int max_percent)
+	public static void fillrooms(int min_percent, int max_percent)
 		{
-		for (int i=0; i<showrooms.length;i++)
+		for (int i=0; i<cinerama.rooms.length;i++)
 			{
-			replaces.randomReplaceRoom(showrooms[i],(utils.random(min_percent,max_percent)),i,seatcounter);
+			replaces.randomReplaceRoom(cinerama.rooms[i],(utils.random(min_percent,max_percent)),i,true);
 			}
 		}
    }

@@ -1,6 +1,6 @@
 /**
 *Clase que contiene el método main
-*@version 0.2
+*@version 0.3
 *@author José Antonio Yáñez Jiménez
 */
 class cinerama
@@ -13,11 +13,49 @@ class cinerama
 	*Constante para definir las butacas ocupadas
 	*/
 	static final int USED=2;
+	/**
+	*Constante para definir los precios de entrada normales
+	*/
+	static final int PRIZE=6;
+	/**
+	*Constante para definir el precio del suplemento 3D
+	*/
+	static final int PRIZE_3D=2;
+	/**
+	*Variable encargada de almacenar todas las salas de cine de la aplicación
+	*Se rellena mediante métodos que contienen muestras o manualmente introduciendo
+	*los datos desde un método que lee entradas de teclado. Tiene tres dimensiones para
+	*contener información de filas de asientos, butacas de cada fila y diferentes salas.
+	*El tamaño del array lo definirán más adelante los métodos de la clase constructors
+	*en función de los requerimentos de sala deseados.
+	*/
+	static int[][][] rooms;
+	/**
+	*Variable encargada de almacenar la información de las salas de cine
+	*Se rellena en función de las salas que creen.
+	*Tiene dos dimensiones: una para especificar la sala de cine a la que se refiere y
+	*otra para almacenar la información relativa a la misma; siendo ésta la cantidad de
+	*butacas, butacas ocupadas, si la sala es de pasillo simple (1) o doble (2) y el
+	*número de butacas obtenidas por easter egg.
+	*El tamaño del array lo definirán más adelante los métodos de la clase constructors
+	*en función de los requerimentos de sala deseados.
+	*/
+	static int[][] filminfo;
+	/**
+	*Variable encargada de almacenar las películas que se proyectan
+	*Se rellena aleatoriamente con películas guardadas en una constante o con las películas
+	*que se escojan de esa constante.
+	*Tiene dos dimensiones: una para especificar la sala de cine a la que se refiere y
+	*otra para almacenar el título de la película y si ésta es 3D o no.
+	*El tamaño del array lo definirán más adelante los métodos de la clase constructors
+	*en función de los requerimentos de sala deseados.
+	*/
+	static String[][] films;
+	/**
+	*Método principal de la aplicación, desde el que se lanza la misma
+	*/
 	public static void main(String[] args)
 		{
-		int[][][] rooms;
-		int[][] seatcounter;
-		String[][] films;
 		boolean exitmenu=false;
 		int sample=inputs.selectSample();
 		switch (sample)
@@ -25,32 +63,31 @@ class cinerama
 		   case 1:
 				rooms=samples.cinema1();
 				films=samples.showfilms1();
-				seatcounter=constructors.makeSeatCounter(rooms);
-				samples.fillrooms(rooms,seatcounter,99,100);
+				samples.fillrooms(40,60);
 		      break;
 		   case 2:
 				rooms=samples.cinema1();
 				films=samples.showfilms1();
-				seatcounter=constructors.makeSeatCounter(rooms);
 		      break;
 		   case 3:
 				rooms=samples.cinema2();
 				films=samples.showfilms2();
-				seatcounter=constructors.makeSeatCounter(rooms);
 		      break;
+			case 4:
+				inputs.manualRooms();
+				break;
 			default:
 				rooms=samples.cinema1();
 				films=samples.showfilms1();
-				seatcounter=constructors.makeSeatCounter(rooms);
 				break;
 			}
 		do
 			{	
-			exitmenu=inputs.mainMenu(rooms,films,seatcounter);
+			exitmenu=inputs.mainMenu();
 			}while(exitmenu==false);
 		do
 			{	
-			exitmenu=inputs.recaudatoryMenu(rooms,films,seatcounter);
+			exitmenu=inputs.recaudatoryMenu();
 			}while(exitmenu==false);		
 		}
 	}
