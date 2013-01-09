@@ -130,6 +130,9 @@
 		//		Butacas ocupadas
 		//		Sala de pasillo simple (1) o doble (2)
 		//		Número de butacas obtenidas por easter egg
+		//		Número de butacas con descuento carnet joven
+		//		Número de butacas con descuento familia numerosa
+		//		Número de butacas con recargo gafas 3D
 		int[][] filminfo=new int[showrooms.length][4];
 		for (int i=0; i<filminfo.length;i++)
 			{

@@ -106,13 +106,13 @@ class Printers
 			{
 			if (film[1].equals("yes"))
 				{
-				System.out.printf("%1s%-58s%1s","|","       Precio: "+Cinerama.PRIZE+" Euros.  Suplemento 3D: "+Cinerama.PRIZE_3D+" Euros.","|\n");
-				System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+(Cinerama.PRIZE+Cinerama.PRIZE_3D)+" Euros.","|\n");
+				System.out.printf("%1s%-58s%1s","|","       Precio: "+Cinerama.PRIZES[0]+" Euros.  Suplemento 3D: "+Cinerama.PRIZES[1]+" Euros.","|\n");
+				System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+(Cinerama.PRIZES[0]+Cinerama.PRIZES[1])+" Euros.","|\n");
 				}
 			else
 				{
-				System.out.printf("%1s%-58s%1s","|","       Precio: "+Cinerama.PRIZE+" Euros.","|\n");
-				System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+Cinerama.PRIZE+" Euros.","|\n");
+				System.out.printf("%1s%-58s%1s","|","       Precio: "+Cinerama.PRIZES[0]+" Euros.","|\n");
+				System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+Cinerama.PRIZES[0]+" Euros.","|\n");
 				}
 			}
 		System.out.printf("%1s%58s%1s","|"," ","|\n");
@@ -257,13 +257,13 @@ class Printers
 			{
 			if (Cinerama.films[i][1].equals("yes"))
 				{
-				System.out.printf("%-40s%3s%7s%3s%8s%5s%3s%11s",Cinerama.films[i][0]," | ",Cinerama.filminfo[i][0]," | ",Cinerama.filminfo[i][1]," | Si"," | ",((Cinerama.PRIZE*Cinerama.filminfo[i][1])+(Cinerama.PRIZE_3D*Cinerama.filminfo[i][1]))+" Euros\n");
-				totalprofit=totalprofit+((Cinerama.PRIZE*Cinerama.filminfo[i][1])+(Cinerama.PRIZE_3D*Cinerama.filminfo[i][1]));
+				System.out.printf("%-40s%3s%7s%3s%8s%5s%3s%11s",Cinerama.films[i][0]," | ",Cinerama.filminfo[i][0]," | ",Cinerama.filminfo[i][1]," | Si"," | ",((Cinerama.PRIZES[0]*Cinerama.filminfo[i][1])+(Cinerama.PRIZES[1]*Cinerama.filminfo[i][1]))+" Euros\n");
+				totalprofit=totalprofit+((Cinerama.PRIZES[0]*Cinerama.filminfo[i][1])+(Cinerama.PRIZES[1]*Cinerama.filminfo[i][1]));
 				}
 			else
 				{
-				System.out.printf("%-40s%3s%7s%3s%8s%5s%3s%11s",Cinerama.films[i][0]," | ",Cinerama.filminfo[i][0]," | ",Cinerama.filminfo[i][1]," | No"," | ",(Cinerama.PRIZE*Cinerama.filminfo[i][1])+" Euros\n");
-				totalprofit=totalprofit+(Cinerama.PRIZE*Cinerama.filminfo[i][1]);
+				System.out.printf("%-40s%3s%7s%3s%8s%5s%3s%11s",Cinerama.films[i][0]," | ",Cinerama.filminfo[i][0]," | ",Cinerama.filminfo[i][1]," | No"," | ",(Cinerama.PRIZES[0]*Cinerama.filminfo[i][1])+" Euros\n");
+				totalprofit=totalprofit+(Cinerama.PRIZES[0]*Cinerama.filminfo[i][1]);
 				}
 			}
 		System.out.print("================================================================================\n");
@@ -273,13 +273,13 @@ class Printers
 			{
 			if (Cinerama.films[i][1].equals("yes"))
 				{
-				System.out.printf("%-53s%3s%10s%3s%11s",Cinerama.films[i][0]," | ",Cinerama.filminfo[i][3]," | ",((Cinerama.PRIZE*Cinerama.filminfo[i][3])+(Cinerama.PRIZE_3D*Cinerama.filminfo[i][3]))+" Euros\n");
-				totalprofit=totalprofit-((Cinerama.PRIZE*Cinerama.filminfo[i][3])+(Cinerama.PRIZE_3D*Cinerama.filminfo[i][3]));
+				System.out.printf("%-53s%3s%10s%3s%11s",Cinerama.films[i][0]," | ",Cinerama.filminfo[i][3]," | ",((Cinerama.PRIZES[0]*Cinerama.filminfo[i][3])+(Cinerama.PRIZES[1]*Cinerama.filminfo[i][3]))+" Euros\n");
+				totalprofit=totalprofit-((Cinerama.PRIZES[0]*Cinerama.filminfo[i][3])+(Cinerama.PRIZES[1]*Cinerama.filminfo[i][3]));
 				}
 			else
 				{
-				System.out.printf("%-53s%3s%10s%3s%11s",Cinerama.films[i][0]," | ",Cinerama.filminfo[i][3]," | ",(Cinerama.PRIZE*Cinerama.filminfo[i][3])+" Euros\n");
-				totalprofit=totalprofit-(Cinerama.PRIZE*Cinerama.filminfo[i][3]);
+				System.out.printf("%-53s%3s%10s%3s%11s",Cinerama.films[i][0]," | ",Cinerama.filminfo[i][3]," | ",(Cinerama.PRIZES[0]*Cinerama.filminfo[i][3])+" Euros\n");
+				totalprofit=totalprofit-(Cinerama.PRIZES[0]*Cinerama.filminfo[i][3]);
 				}
 			
 			}
@@ -762,5 +762,24 @@ class Printers
 			}
 		System.out.printf("%-8s","|"); //Última columna
 		System.out.print("\n");		
+		}
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	public static void showGrossProfit()
+		{
+		int bruteprofit=0;
+		System.out.printf("%-40s%12s%20s%20s","Película"," | Precio U."," | Gafas 3D vendidas"," |  Beneficio bruto ");
+		System.out.print("\n===============================================================================================\n"); //95 caracteres
+		for (int i=0; i<Cinerama.films.length; i++)
+			{
+			System.out.printf("%-40s%3s",Cinerama.films[i][0]);
+			System.out.printf("%9s%12s%3s%17%3s%17s"," | ",(Cinerama.films[i][1].equals("no"))?Cinerama.PRIZES[0]+"(2D)":(Cinerama.PRIZES[0]+Cinerama.PRIZES[1])+"(3D)");
+			}
 		}
 	}

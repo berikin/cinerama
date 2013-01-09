@@ -14,13 +14,18 @@ class Cinerama
 	*/
 	static final int USED=2;
 	/**
-	*Constante para definir los precios de entrada normales
+	*Constante para definir los precios
+	* [0]-Precio base de entrada
+	* [1]-Recargo por proyección 3D
+	* [2]-Recargo por gafas 3D
+	* [3]-Descuento carné joven
+	* [4]-Descuento familia numerosa
 	*/
-	static final int PRIZE=6;
+	static final int[] PRIZES={6,2,1,2,2};
 	/**
 	*Constante para definir el precio del suplemento 3D
 	*/
-	static final int PRIZE_3D=2;
+	//static final int PRIZE_3D=2;
 	/**
 	*Variable encargada de almacenar todas las salas de cine de la aplicación
 	*Se rellena mediante métodos que contienen muestras o manualmente introduciendo
