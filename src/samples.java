@@ -2,10 +2,10 @@
 *Clase que contiene los métodos que generan
 *Salas de cine de muestra, peliculas de muestra
 *y rellenan asientos con público de muestra
-*@version 0.3
+*@version 0.4
 *@author José Antonio Yáñez Jiménez
 */
-   class samples
+   class Samples
    {
 	/**
 	*Método que utiliza el ejemplo de cine 1
@@ -20,8 +20,8 @@
 		{
 		int[][] roomsatribs={{10,20,2},{8,12,1},{8,10,2},{9,8,1}};
 		int[] max_room={10,20};
-		int[][][] rooms=constructors.makeRooms(max_room,roomsatribs,cinerama.AVAILABLE);
-		cinerama.filminfo=constructors.makeFilmInfo(rooms,roomsatribs);
+		int[][][] rooms=Constructors.makeRooms(max_room,roomsatribs,Cinerama.AVAILABLE);
+		Cinerama.filminfo=Constructors.makeFilmInfo(rooms,roomsatribs);
 		return rooms;
 		}
 	/**
@@ -35,8 +35,8 @@
 		{
 		int[][] roomsatribs={{12,12,2},{10,8,1}};
 		int[] max_room={12,12};
-		int[][][] rooms=constructors.makeRooms(max_room,roomsatribs,cinerama.AVAILABLE);
-		cinerama.filminfo=constructors.makeFilmInfo(rooms,roomsatribs);
+		int[][][] rooms=Constructors.makeRooms(max_room,roomsatribs,Cinerama.AVAILABLE);
+		Cinerama.filminfo=Constructors.makeFilmInfo(rooms,roomsatribs);
 		return rooms;
 		}
 	/**
@@ -47,7 +47,7 @@
 	*/
 	public static String[][] showfilms1()
 		{
-		String[][] films=constructors.makeFilms(4,2);
+		String[][] films=Constructors.makeFilms(4,2);
 		return films;
 		}
 	/**
@@ -58,20 +58,20 @@
 	*/
 	public static String[][] showfilms2()
 		{
-		String[][] films=constructors.makeFilms(2,0);
+		String[][] films=Constructors.makeFilms(2,0);
 		return films;
 		}
 	/**
 	*Método que rellena las salas al con un porcentaje que varía entre
 	*el 5 y el 60% de la capacidad de las mismas
-	*@param showrooms Salas que serán rellenadas
-	*@param filminfo Contador de butacas totales y disponibles
+	*@param min_percent índice de porcentaje mínimo aleatorio
+	*@param max_percent índice de porcentaje máximo aleatorio
 	*/
 	public static void fillrooms(int min_percent, int max_percent)
 		{
-		for (int i=0; i<cinerama.rooms.length;i++)
+		for (int i=0; i<Cinerama.rooms.length;i++)
 			{
-			replaces.randomReplaceRoom(cinerama.rooms[i],(utils.random(min_percent,max_percent)),i,true);
+			Replaces.randomReplaceRoom(Cinerama.rooms[i],(Utils.random(min_percent,max_percent)),i,true);
 			}
 		}
    }

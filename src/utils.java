@@ -1,10 +1,10 @@
 /**
 *Clase que contiene métodos reutilizables a lo largo
 *de toda la aplicación
-*@version 0.3
+*@version 0.4
 *@author José Antonio Yáñez Jiménez
 */
-class utils
+class Utils
 	{
 	/**
 	*Método que genera un número aleatorio a partir de un intervalo
@@ -306,7 +306,7 @@ class utils
 	*/
 	public static int[] aisleTickets(int[][] room, int seats, int methodtype)
 		{
-		int[] size=utils.roomSize(room);
+		int[] size=roomSize(room);
 		int min_for=0, max_for=room.length, aux=0, availscounter=0;
 		switch (methodtype)
 			{

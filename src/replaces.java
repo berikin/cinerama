@@ -1,9 +1,9 @@
 /**
 *Clase que contiene los métodos que modifican nuestros arrays
-*@version 0.3
+*@version 0.4
 *@author José Antonio Yáñez Jiménez
 */
-class replaces
+class Replaces
 	{
 	/**
 	*Método que modifica una sala de cine de forma aleatoria rellenando
@@ -23,7 +23,7 @@ class replaces
 		int max_people=seats, random_row=0, random_col=0;
 		boolean repeated=false;
 		int randompeoplecounter=0;
-		int[] roomsize=utils.roomSize(showroom);
+		int[] roomsize=Utils.roomSize(showroom);
 		/////////////////////////////////////////////////////////////////////////////////////
 		//Si nos encontramos realizando un relleno de público calculamos el número final
 		//de butacas a rellenar en función del porcentaje recibido por parámetro y el tamaño
@@ -33,15 +33,15 @@ class replaces
 			{
 			max_people=((roomsize[0]*roomsize[1])*seats)/100;
 			}
-		int[][] randompeople=constructors.makeRandomCounter(max_people,2);
-		printers.showInfo("\nRellenando la sala "+(roomnumber+1)+" con "+max_people+" asistentes. Por favor espere... ");
+		int[][] randompeople=Constructors.makeRandomCounter(max_people,2);
+		Printers.showInfo("\nRellenando la sala "+(roomnumber+1)+" con "+max_people+" asistentes. Por favor espere... ");
 		for (int i=0;i<max_people; i++)
 			{
 			randompeoplecounter++;
 			do
 				{
-				random_row=utils.random(0,(roomsize[0]-1));
-				random_col=utils.random(0,(roomsize[1]-1));
+				random_row=Utils.random(0,(roomsize[0]-1));
+				random_col=Utils.random(0,(roomsize[1]-1));
 				for (int j=0; j<randompeoplecounter; j++)
 					{
 					repeated=false;
@@ -62,9 +62,9 @@ class replaces
 			randompeople[i][1]=random_col;
 			if (percent==false)
 				{
-				printers.buyedTicket(cinerama.films[roomnumber], roomnumber, random_row, random_col, false);
-				printers.showInfo("\nRecoja su ticket, pulse intro para continuar.");
-				utils.returnPause();
+				Printers.buyedTicket(Cinerama.films[roomnumber], roomnumber, random_row, random_col, false);
+				Printers.showInfo("\nRecoja su ticket, pulse intro para continuar.");
+				Utils.returnPause();
 				}
 			}
 		for (int i=0;i<randompeople.length;i++)
@@ -84,6 +84,6 @@ class replaces
 	public static void replaceArray(int[][] showroom, int row, int col, int roomnumber)
 		{
 		showroom[row][col]=2;
-		cinerama.filminfo[roomnumber][1]++;
+		Cinerama.filminfo[roomnumber][1]++;
 		}
 	}

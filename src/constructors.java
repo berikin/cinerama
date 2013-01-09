@@ -1,10 +1,10 @@
 /**
 *Clase que contiene los métodos que construyen
 *las salas de cine, las peliculas
-*@version 0.3
+*@version 0.4
 *@author José Antonio Yáñez Jiménez
 */  
-	class constructors
+	class Constructors
    {
 	//Hay peliculas 3D disponibles en la posición 0 a 6
 	static final int AVAILABLE3D=6;
@@ -58,7 +58,7 @@
 			{
 			do
 				{
-				show3d=utils.random(0,(number-1));
+				show3d=Utils.random(0,(number-1));
 				for (int j=0; j<=i;j++)
 				//El bucle sirve para evitar que escojamos repetidas veces
 				//la misma posición del array final de peliculas para encajar
@@ -83,7 +83,7 @@
 				{
 				if (i==shows3d[j])
                {
-					show=utils.random(0,AVAILABLE3D);
+					show=Utils.random(0,AVAILABLE3D);
 					films[i][0]=FILMS_AVAILABLE[show][0];
 					films[i][1]=FILMS_AVAILABLE[show][1];
 					film_filled=true;
@@ -95,7 +95,7 @@
             }
 			else
             {
-				show=utils.random(0,(FILMS_AVAILABLE.length-1));
+				show=Utils.random(0,(FILMS_AVAILABLE.length-1));
 				films[i][0]=FILMS_AVAILABLE[show][0];
 				films[i][1]="no";
             }
@@ -110,7 +110,7 @@
 	*/
 	public static void fillFilmInfo(int[][] showroom,int[] filminfo, int aisles)
 		{
-		int[] roomsize=utils.roomSize(showroom);
+		int[] roomsize=Utils.roomSize(showroom);
 		filminfo[0]=(roomsize[0]*roomsize[1]);
 		filminfo[2]=aisles;
 		}
@@ -133,7 +133,7 @@
 		int[][] filminfo=new int[showrooms.length][4];
 		for (int i=0; i<filminfo.length;i++)
 			{
-			roomsize=utils.roomSize(showrooms[i]);
+			roomsize=Utils.roomSize(showrooms[i]);
 			if (roomatribs[i][2]==2)
 				{
 				fillFilmInfo(showrooms[i],filminfo[i],2);

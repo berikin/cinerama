@@ -2,10 +2,10 @@ import java.io.*;
 /**
 *Clase que contiene los métodos para obtener
 *entradas de teclado
-*@version 0.3
+*@version 0.4
 *@author José Antonio Yáñeez Jiménez
 */
-public class kread 
+public class Kread 
 	{
     public static String readString() 
 	 	{

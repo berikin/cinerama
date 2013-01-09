@@ -1,7 +1,7 @@
-class printers
+class Printers
 /**
 *Cinerama for IES Galileo
-*version 0.3
+*version 0.4
 *Author José Antonio Yáñez Jiménez
 */
 	{
@@ -38,6 +38,7 @@ class printers
 	/**
 	*Método para realizar prints desde otras partes de la aplicación
 	*que no sean la clase printers
+	*@param info Cadena de texto que debe imprimirse
 	*/
 	public static void showInfo(String info)
 		{
@@ -61,7 +62,6 @@ class printers
 	*Método que sirve para mostrar las butacas disponibles a escoger
 	*cuando se trata de grupos de butacas. Método muy similar a showElement
 	*@param elementfree Array con las /filas/butacas disponibles
-	*@param type Cadena de texto que indica si nos referimos a filas o butacas
 	*/
 	public static void multiShowElement(int[][] elementfree)
 		{
@@ -106,13 +106,13 @@ class printers
 			{
 			if (film[1].equals("yes"))
 				{
-				System.out.printf("%1s%-58s%1s","|","       Precio: "+cinerama.PRIZE+" Euros.  Suplemento 3D: "+cinerama.PRIZE_3D+" Euros.","|\n");
-				System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+(cinerama.PRIZE+cinerama.PRIZE_3D)+" Euros.","|\n");
+				System.out.printf("%1s%-58s%1s","|","       Precio: "+Cinerama.PRIZE+" Euros.  Suplemento 3D: "+Cinerama.PRIZE_3D+" Euros.","|\n");
+				System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+(Cinerama.PRIZE+Cinerama.PRIZE_3D)+" Euros.","|\n");
 				}
 			else
 				{
-				System.out.printf("%1s%-58s%1s","|","       Precio: "+cinerama.PRIZE+" Euros.","|\n");
-				System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+cinerama.PRIZE+" Euros.","|\n");
+				System.out.printf("%1s%-58s%1s","|","       Precio: "+Cinerama.PRIZE+" Euros.","|\n");
+				System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+Cinerama.PRIZE+" Euros.","|\n");
 				}
 			}
 		System.out.printf("%1s%58s%1s","|"," ","|\n");
@@ -140,21 +140,21 @@ class printers
 		//////////////////////////////////////////////////////////////////
 		if (filmseats!=1) 
 			{
-			if (cinerama.filminfo[option][2]==2)
+			if (Cinerama.filminfo[option][2]==2)
 				{
-				availablerows=utils.aisleTickets(cinerama.rooms[option],filmseats,3);
+				availablerows=Utils.aisleTickets(Cinerama.rooms[option],filmseats,3);
 				if (availablerows[0]!=Integer.MAX_VALUE)
 					{
 					System.out.print("\n(5) Orden manual en Zona Izquierda (asientos contiguos).");
 					twoleft=true;
 					}
-				availablerows=utils.aisleTickets(cinerama.rooms[option],filmseats,4);
+				availablerows=Utils.aisleTickets(Cinerama.rooms[option],filmseats,4);
 				if (availablerows[0]!=Integer.MAX_VALUE)
 					{
 					System.out.print("\n(6) Orden manual en Zona Central (asientos contiguos).");
 					twocenter=true;
 					}
-				availablerows=utils.aisleTickets(cinerama.rooms[option],filmseats,5);
+				availablerows=Utils.aisleTickets(Cinerama.rooms[option],filmseats,5);
 				if (availablerows[0]!=Integer.MAX_VALUE)
 					{
 					System.out.print("\n(7) Orden manual en Zona Derecha (asientos contiguos).");
@@ -163,13 +163,13 @@ class printers
 				}
 			else
 				{
-				availablerows=utils.aisleTickets(cinerama.rooms[option],filmseats,1);
+				availablerows=Utils.aisleTickets(Cinerama.rooms[option],filmseats,1);
 				if (availablerows[0]!=Integer.MAX_VALUE)
 					{
 					System.out.print("\n(3) Orden manual en Zona Izquierda (asientos contiguos).");
 					oneleft=true;
 					}
-				availablerows=utils.aisleTickets(cinerama.rooms[option],filmseats,2);
+				availablerows=Utils.aisleTickets(Cinerama.rooms[option],filmseats,2);
 				if (availablerows[0]!=Integer.MAX_VALUE)
 					{
 					System.out.print("\n(4) Orden manual en Zona Derecha (asientos contiguos).");
@@ -253,33 +253,33 @@ class printers
 		System.out.print("\n____________________\n\n");
 		System.out.printf("%-40s%10s%11s%5s%14s","Película"," | Butacas"," | Vendidas"," | 3D"," |  Beneficio ");
 		System.out.print("\n================================================================================\n");
-		for (int i=0; i<cinerama.films.length; i++)
+		for (int i=0; i<Cinerama.films.length; i++)
 			{
-			if (cinerama.films[i][1].equals("yes"))
+			if (Cinerama.films[i][1].equals("yes"))
 				{
-				System.out.printf("%-40s%3s%7s%3s%8s%5s%3s%11s",cinerama.films[i][0]," | ",cinerama.filminfo[i][0]," | ",cinerama.filminfo[i][1]," | Si"," | ",((cinerama.PRIZE*cinerama.filminfo[i][1])+(cinerama.PRIZE_3D*cinerama.filminfo[i][1]))+" Euros\n");
-				totalprofit=totalprofit+((cinerama.PRIZE*cinerama.filminfo[i][1])+(cinerama.PRIZE_3D*cinerama.filminfo[i][1]));
+				System.out.printf("%-40s%3s%7s%3s%8s%5s%3s%11s",Cinerama.films[i][0]," | ",Cinerama.filminfo[i][0]," | ",Cinerama.filminfo[i][1]," | Si"," | ",((Cinerama.PRIZE*Cinerama.filminfo[i][1])+(Cinerama.PRIZE_3D*Cinerama.filminfo[i][1]))+" Euros\n");
+				totalprofit=totalprofit+((Cinerama.PRIZE*Cinerama.filminfo[i][1])+(Cinerama.PRIZE_3D*Cinerama.filminfo[i][1]));
 				}
 			else
 				{
-				System.out.printf("%-40s%3s%7s%3s%8s%5s%3s%11s",cinerama.films[i][0]," | ",cinerama.filminfo[i][0]," | ",cinerama.filminfo[i][1]," | No"," | ",(cinerama.PRIZE*cinerama.filminfo[i][1])+" Euros\n");
-				totalprofit=totalprofit+(cinerama.PRIZE*cinerama.filminfo[i][1]);
+				System.out.printf("%-40s%3s%7s%3s%8s%5s%3s%11s",Cinerama.films[i][0]," | ",Cinerama.filminfo[i][0]," | ",Cinerama.filminfo[i][1]," | No"," | ",(Cinerama.PRIZE*Cinerama.filminfo[i][1])+" Euros\n");
+				totalprofit=totalprofit+(Cinerama.PRIZE*Cinerama.filminfo[i][1]);
 				}
 			}
 		System.out.print("================================================================================\n");
 		System.out.printf("%-53s%13s%14s","Película"," | Regaladas "," |  Deducción ");
 		System.out.print("\n================================================================================\n");
-		for (int i=0; i<cinerama.films.length; i++)
+		for (int i=0; i<Cinerama.films.length; i++)
 			{
-			if (cinerama.films[i][1].equals("yes"))
+			if (Cinerama.films[i][1].equals("yes"))
 				{
-				System.out.printf("%-53s%3s%10s%3s%11s",cinerama.films[i][0]," | ",cinerama.filminfo[i][3]," | ",((cinerama.PRIZE*cinerama.filminfo[i][3])+(cinerama.PRIZE_3D*cinerama.filminfo[i][3]))+" Euros\n");
-				totalprofit=totalprofit-((cinerama.PRIZE*cinerama.filminfo[i][3])+(cinerama.PRIZE_3D*cinerama.filminfo[i][3]));
+				System.out.printf("%-53s%3s%10s%3s%11s",Cinerama.films[i][0]," | ",Cinerama.filminfo[i][3]," | ",((Cinerama.PRIZE*Cinerama.filminfo[i][3])+(Cinerama.PRIZE_3D*Cinerama.filminfo[i][3]))+" Euros\n");
+				totalprofit=totalprofit-((Cinerama.PRIZE*Cinerama.filminfo[i][3])+(Cinerama.PRIZE_3D*Cinerama.filminfo[i][3]));
 				}
 			else
 				{
-				System.out.printf("%-53s%3s%10s%3s%11s",cinerama.films[i][0]," | ",cinerama.filminfo[i][3]," | ",(cinerama.PRIZE*cinerama.filminfo[i][3])+" Euros\n");
-				totalprofit=totalprofit-(cinerama.PRIZE*cinerama.filminfo[i][3]);
+				System.out.printf("%-53s%3s%10s%3s%11s",Cinerama.films[i][0]," | ",Cinerama.filminfo[i][3]," | ",(Cinerama.PRIZE*Cinerama.filminfo[i][3])+" Euros\n");
+				totalprofit=totalprofit-(Cinerama.PRIZE*Cinerama.filminfo[i][3]);
 				}
 			
 			}
@@ -293,15 +293,15 @@ class printers
 	public static void showRoomOccupation()
 		{
 		System.out.print("\nOcupación actual de las salas (Pulsa 0 para salir cuando lo desees):\n");
-		for (int i=0;i<cinerama.filminfo.length;i++)
+		for (int i=0;i<Cinerama.filminfo.length;i++)
 			{
-			System.out.print("\n\tProyección "+(i+1)+", "+cinerama.films[i][0]);
-			if (cinerama.films[i][1].equals("yes"))
+			System.out.print("\n\tProyección "+(i+1)+", "+Cinerama.films[i][0]);
+			if (Cinerama.films[i][1].equals("yes"))
 				{
 				System.out.print("(3D)");
 				}
-			System.out.print(": "+cinerama.filminfo[i][1]+" de "+cinerama.filminfo[i][0]);
-			System.out.print(" ("+(cinerama.filminfo[i][1]*100)/cinerama.filminfo[i][0]+"%) (Pulsa "+(i+1)+" para ver la ocupación gráficamente)\n");
+			System.out.print(": "+Cinerama.filminfo[i][1]+" de "+Cinerama.filminfo[i][0]);
+			System.out.print(" ("+(Cinerama.filminfo[i][1]*100)/Cinerama.filminfo[i][0]+"%) (Pulsa "+(i+1)+" para ver la ocupación gráficamente)\n");
 			}
 		}	
 	/**
@@ -311,9 +311,9 @@ class printers
 		{
 		System.out.print("\nEste es el listado de peliculas que se proyectan hoy en Cinerama.");
 		System.out.print("\nSelecciona uno de los números disponibles para comprar tu entrada:\n");
-		for (int i=0; i<cinerama.filminfo.length;i++)
+		for (int i=0; i<Cinerama.filminfo.length;i++)
 			{
-			if (cinerama.filminfo[i][0]!=cinerama.filminfo[i][1])
+			if (Cinerama.filminfo[i][0]!=Cinerama.filminfo[i][1])
 				{
 				System.out.print("\n\t("+(i+1)+")");
 				}
@@ -321,12 +321,12 @@ class printers
 				{
 				System.out.print("\n\tSala llena. ");
 				}
-			System.out.print(cinerama.films[i][0]);
-			if (cinerama.films[i][1].equals("yes"))
+			System.out.print(Cinerama.films[i][0]);
+			if (Cinerama.films[i][1].equals("yes"))
 				{
 				System.out.print("(Proyección 3D)");
 				}
-			if (cinerama.filminfo[i][2]==1)
+			if (Cinerama.filminfo[i][2]==1)
 				{
 				System.out.print(". Sala regular (1 pasillo central) ");
 				}
@@ -334,7 +334,7 @@ class printers
 				{
 				System.out.print(". Sala amplia (2 pasillos centrales) ");
 				}
-			System.out.print("con "+cinerama.filminfo[i][0]+" plazas totales.");
+			System.out.print("con "+Cinerama.filminfo[i][0]+" plazas totales.");
 			}
 		System.out.print("\n");
 		}
@@ -346,7 +346,7 @@ class printers
 	*/
 	public static void oneAisle(int[][] room, int[] filminfo, String[] film)
 		{
-		int[] size=utils.roomSize(room);
+		int[] size=Utils.roomSize(room);
 		System.out.print("Proyección: "+film[0]);
 		if (film[1].equals("yes"))
 			{
@@ -559,7 +559,7 @@ class printers
 	*/
 	public static void twoAisle(int[][] room, int[] filminfo, String[] film)
 		{
-		int[] size=utils.roomSize(room);
+		int[] size=Utils.roomSize(room);
 		System.out.print("Proyección: "+film[0]);
 		if (film[1].equals("yes"))
 			{

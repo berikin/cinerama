@@ -1,9 +1,9 @@
 /**
 *Clase que contiene el método main
-*@version 0.3
+*@version 0.4
 *@author José Antonio Yáñez Jiménez
 */
-class cinerama
+class Cinerama
 	{
 	/**
 	*Constante para definir las butacas libres
@@ -57,37 +57,37 @@ class cinerama
 	public static void main(String[] args)
 		{
 		boolean exitmenu=false;
-		int sample=inputs.selectSample();
+		int sample=Inputs.selectSample();
 		switch (sample)
 			{
 		   case 1:
-				rooms=samples.cinema1();
-				films=samples.showfilms1();
-				samples.fillrooms(40,60);
+				rooms=Samples.cinema1();
+				films=Samples.showfilms1();
+				Samples.fillrooms(40,60);
 		      break;
 		   case 2:
-				rooms=samples.cinema1();
-				films=samples.showfilms1();
+				rooms=Samples.cinema1();
+				films=Samples.showfilms1();
 		      break;
 		   case 3:
-				rooms=samples.cinema2();
-				films=samples.showfilms2();
+				rooms=Samples.cinema2();
+				films=Samples.showfilms2();
 		      break;
 			case 4:
-				inputs.manualRooms();
+				Inputs.manualRooms();
 				break;
 			default:
-				rooms=samples.cinema1();
-				films=samples.showfilms1();
+				rooms=Samples.cinema1();
+				films=Samples.showfilms1();
 				break;
 			}
 		do
 			{	
-			exitmenu=inputs.mainMenu();
+			exitmenu=Inputs.mainMenu();
 			}while(exitmenu==false);
 		do
 			{	
-			exitmenu=inputs.recaudatoryMenu();
+			exitmenu=Inputs.recaudatoryMenu();
 			}while(exitmenu==false);		
 		}
 	}
