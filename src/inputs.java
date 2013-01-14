@@ -297,8 +297,8 @@ public class Inputs
 					if (newClient()==0)
 						{
 						Printers.showInfo("\nOperación cancelada.");
+						Utils.pause(2000);
 						}
-					Utils.pause(2000);
 			      return false;
 				case 2:
 					occupationMenu();
@@ -484,7 +484,7 @@ public class Inputs
 			{
 		   case 1: //Ordenación aleatoria
 				Replaces.randomReplaceRoom(room,filmseats,option,false);
-				Printers.showInfo("Proceso de compra finalizado, disfrute de la película");
+				Printers.showInfo("Proceso de compra finalizado, disfrute de la película.");
 				Utils.pause(2000);
 				return 1;
 		   case 2: //Ordenación manual
@@ -541,8 +541,9 @@ public class Inputs
 	*/
 	public static int semiautomaticMethod(int[][] room, int option, int methodtype, int filmseats)
 		{
-		int row, col, addonmode;
+		int row, col, addonmode=0;
 		boolean validrow=false, validcol=false;
+		int combinedpayment=0, totalmoney=0;
 		int[] availablerows=Utils.aisleTickets(Cinerama.rooms[option],filmseats,methodtype);
 		Printers.showLogo();
 		//////////////////
@@ -612,9 +613,31 @@ public class Inputs
 		for (int i=seatgroups[col][0];i<=seatgroups[col][1];i++)
 			{
 			Replaces.replaceArray(room, row, i, option); //Modificamos el array de la sala
-			addonmode=Inputs.addons();
-			Printers.buyedTicket(Cinerama.films[option], option, row, i, addonmode); //Imprimimos el ticket de venta			
-			Printers.showInfo("\nRecoja su ticket, pulse intro para continuar.");
+			if (addonmode!=4 & addonmode!=5 & addonmode!=6)
+				{
+				addonmode=Inputs.addons(filmseats);
+				}
+			////////////////////////////
+			//Método de pago combinado//
+			////////////////////////////
+			if (combinedpayment==0) //Escogemos el método de pago combinado o individual
+				{
+				combinedpayment=paymentMethod();
+				}
+			if (combinedpayment==1) //Pago combinado muestra todos los tickets y al final el importe total y la pausa
+				{
+				totalmoney=totalmoney+Printers.buyedTicket(Cinerama.films[option], option, row, i, addonmode);
+				}
+			else //Pago individual
+				{
+				Printers.buyedTicket(Cinerama.films[option], option, row, i, addonmode); //Imprimimos el ticket de venta			
+				Printers.showInfo("\nRecoja su ticket, pulse intro para continuar.");
+				Utils.returnPause();
+				}
+			}
+		if (combinedpayment==1)
+			{
+			Printers.showInfo("\nAbone el importe de "+totalmoney+" euros, recoja sus tickets y pulse intro para finalizar.");
 			Utils.returnPause();
 			}
 		return 1;
@@ -713,11 +736,11 @@ public class Inputs
 		////////////////////////////////////////////////////
 		if (redemption)
 			{
-			addonmode=3;
+			addonmode=7;
 			}
 		else
 			{
-			addonmode=Inputs.addons();
+			addonmode=Inputs.addons(1);
 			}
 		Printers.buyedTicket(Cinerama.films[option], option, row, col,addonmode); //Imprimimos el ticket de venta
 		return 1;
@@ -727,35 +750,70 @@ public class Inputs
 	*Se activa en el momento inmediatamente anterior a la impresión del ticket
 	*Se pregunta si se desea una entrada estándar, una con descuento por carné joven
 	*o una con descuento por familia numerosa. El precio varía en función del tipo de ticket
-	*@return Número en función de la opción escogida, lo que sirve para saber qué descuento escoger.
+	*@return 1->Estándar ind., 2->C. joven ind, 3->F. Núm. ind., 4->Estándar grupo,
+	*5->C. Joven grupo,6-> F. Núm. grupo.
 	*/	
-	public static int addons()
+	public static int addons(int filmseats)
 		{
 		int addonopt;
 		do
 			{
-			Printers.showAddonsMenu();
+			Printers.showAddonsMenu(filmseats);
 			addonopt=Kread.readInt();
-			if (addonopt<1 || (addonopt>3))
+			if (addonopt<1 || (addonopt>6 & filmseats>1) || (addonopt>3 & filmseats<2))
 				{
 				Printers.showInfo("\nEscogiste una opción no válida, inténtalo de nuevo");
 				Utils.pause(2000);
 				}
 			else
-					{
-					break;
-					}
-				} while (1==1);
+				{
+				break;
+				}
+			} while (1==1);
 		switch (addonopt)
 			{
 		   case 2:
 		      Cinerama.filminfo[option][5]++;
-				return 1;
+				return 2;
 		   case 3:
 		      Cinerama.filminfo[option][6]++;
-				return 2;
+				return 3;
+			case 4:
+				return 4;
+			case 5:
+				Cinerama.filminfo[option][5]=Cinerama.filminfo[option][5]+filmseats;
+				return 5;
+			case 6:
+		 		Cinerama.filminfo[option][6]= Cinerama.filminfo[option][6]+filmseats;
+				return 6;
 			default:
-				return 0;
+				return 1;
 			}
+		}
+	/*
+	*Método para administrar el modo de pago
+	*Actualmente el pago de entradas puede realizarse de forma individual
+	*o unificando todo el pago a la vez. Este método se invoca cuando se compran
+	*varias entradas con un sistema de ordenación diferente al manual individual.
+	*@return 1 para sistema individual y 2 para compra conjunta de tickets.
+	*/	
+	public static int paymentMethod()
+		{
+		int payopt;
+		do
+			{
+			Printers.showLogo();
+			Printers.showPaymentMethod();
+			payopt=Kread.readInt();
+			if (payopt<1 || (payopt>2))
+				{
+				Printers.showInfo("\nEscogiste una opción no válida, inténtalo de nuevo");
+				Utils.pause(2000);
+				}
+			else
+				{
+				return payopt;
+				}
+			} while (1==1);
 		}
 	}

@@ -78,9 +78,12 @@ class Printers
 	*@param roomnumber Número de sala
 	*@param row Fila de la butaca vendida
 	*@param col Número de butaca vendida
+	*@param addonmode Indica el tipo de ticket (simple, descuento C. joven o F. núm, gratuito)
+	*@return Cantidad a pagar por el ticket
 	*/
-	public static void buyedTicket(String[] film,int roomnumber,int row,int col, int addonmode)
+	public static int buyedTicket(String[] film,int roomnumber,int row,int col, int addonmode)
 		{
+		int ticketprize;
 		System.out.print("\n____________________________________________________________\n"); //60 lineas
 		System.out.printf("%1s%58s%1s","|"," ","|\n");
 		System.out.printf("%1s%-58s%1s","|","    Cinerama IES Galileo","|\n");
@@ -102,23 +105,34 @@ class Printers
 			{
 			switch (addonmode)
 				{
-			   case 1:
+				//Carné joven
+			   case 2:
+				case 5:
+					ticketprize=((Cinerama.PRIZES[0]+Cinerama.PRIZES[1])-Cinerama.PRIZES[3]);
 					System.out.printf("%1s%4s%-54s%1s","|"," ","Descuento Carné Joven: "+Cinerama.PRIZES[3]+" Euros.","|\n");
 					System.out.printf("%1s%-58s%1s","|","    Precio: "+Cinerama.PRIZES[0]+" Euros.  Suplemento 3D: "+Cinerama.PRIZES[1]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+((Cinerama.PRIZES[0]+Cinerama.PRIZES[1])-Cinerama.PRIZES[3])+" Euros.","|\n");		      
+					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+ticketprize+" Euros.","|\n");		      
 					break;
-			   case 2:
+				//Familia numerosa
+			   case 3:
+				case 6:
+					ticketprize=((Cinerama.PRIZES[0]+Cinerama.PRIZES[1])-Cinerama.PRIZES[4]);
 					System.out.printf("%1s%4s%-54s%1s","|"," ","Descuento Familia Numerosa: "+Cinerama.PRIZES[4]+" Euros.","|\n");
 					System.out.printf("%1s%-58s%1s","|","    Precio: "+Cinerama.PRIZES[0]+" Euros.  Suplemento 3D: "+Cinerama.PRIZES[1]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+((Cinerama.PRIZES[0]+Cinerama.PRIZES[1])-Cinerama.PRIZES[4])+" Euros.","|\n");		      
+					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+ticketprize+" Euros.","|\n");		      
 			      break;
-				case 3:
+				//Gratuita
+				case 7:
+					ticketprize=0;
 					System.out.printf("%1s%4s%-54s%1s","|"," ","Entrada adquirida con promoción","|\n");
 					System.out.printf("%1s%-58s%1s","|","       ####ENTRADA GRATUITA####","|\n");
+					break;
+				//Simple
 			   default:
+					ticketprize=(Cinerama.PRIZES[0]+Cinerama.PRIZES[1]);
 					System.out.printf("%1s%4s%-54s%1s","|"," ","Entrada Estandar","|\n");
 					System.out.printf("%1s%-58s%1s","|","      Precio: "+Cinerama.PRIZES[0]+" Euros.  Suplemento 3D: "+Cinerama.PRIZES[1]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+(Cinerama.PRIZES[0]+Cinerama.PRIZES[1])+" Euros.","|\n");
+					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+ticketprize+" Euros.","|\n");
 			  		break;
 				}
 			}
@@ -126,28 +140,36 @@ class Printers
 			{
 			switch (addonmode)
 				{
-			   case 1:
+			   case 2:
+				case 5:
+					ticketprize=(Cinerama.PRIZES[0]-Cinerama.PRIZES[3]);
 					System.out.printf("%1s%4s%-54s%1s","|"," ","Descuento Carné Joven: "+Cinerama.PRIZES[3]+" Euros.","|\n");
 					System.out.printf("%1s%-58s%1s","|","    Precio: "+Cinerama.PRIZES[0]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+(Cinerama.PRIZES[0]-Cinerama.PRIZES[3])+" Euros.","|\n");		      
+					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+ticketprize+" Euros.","|\n");		      
 					break;
-			   case 2:
+			   case 3:
+				case 6:
+					ticketprize=(Cinerama.PRIZES[0]-Cinerama.PRIZES[4]);
 					System.out.printf("%1s%4s%-54s%1s","|"," ","Descuento Familia Numerosa: "+Cinerama.PRIZES[4]+" Euros.","|\n");
 					System.out.printf("%1s%-58s%1s","|","    Precio: "+Cinerama.PRIZES[0]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+(Cinerama.PRIZES[0]-Cinerama.PRIZES[4])+" Euros.","|\n");		      
+					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+ticketprize+" Euros.","|\n");		      
 			      break;
-				case 3:
+				case 7:
+					ticketprize=0;
 					System.out.printf("%1s%4s%-54s%1s","|"," ","Entrada adquirida con promoción","|\n");
 					System.out.printf("%1s%-58s%1s","|","       ####ENTRADA GRATUITA####","|\n");
+					break;
 			   default:
+					ticketprize=Cinerama.PRIZES[0];
 					System.out.printf("%1s%4s%-54s%1s","|"," ","Entrada Estandar","|\n");
 					System.out.printf("%1s%-58s%1s","|","      Precio: "+Cinerama.PRIZES[0]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+Cinerama.PRIZES[0]+" Euros.","|\n");
+					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+ticketprize+" Euros.","|\n");
 			  		break;
 				}
 			}
 		System.out.printf("%1s%58s%1s","|"," ","|\n");
 		System.out.print("|__________________________________________________________|"); //40 lineas
+		return ticketprize;
 		}
 	/**
 	*Método que imprime por pantalla las posibles opciones de orden de venta de butacas.
@@ -268,12 +290,28 @@ class Printers
 	/**
 	*Método que muestra el menú de descuentos de venta
 	*/
-	public static void showAddonsMenu()
+	public static void showAddonsMenu(int filmseats)
 		{
 		System.out.print("\nEscoge entre una de las siguientes opciones:");
 		System.out.print("\n\t(1) Entrada Estándar");
 		System.out.print("\n\t(2) Descuento carné Joven ("+Cinerama.PRIZES[3]+" Eur.)");
 		System.out.print("\n\t(3) Descuento familia numerosa ("+Cinerama.PRIZES[4]+" Eur.)");
+		if (filmseats>1)
+			{
+			System.out.print("\n\t(4) Pagar todas como entrada Estándar");
+			System.out.print("\n\t(5) Pagar todas como descuento carné Joven ("+Cinerama.PRIZES[3]+" Eur.)");
+			System.out.print("\n\t(6) Pagar todas como descuento familia numerosa ("+Cinerama.PRIZES[4]+" Eur.)");
+			}
+		System.out.print("\n");
+		}
+	/**
+	*Método que muestra el menú de descuentos de venta
+	*/
+	public static void showPaymentMethod()
+		{
+		System.out.print("\nEscoge entre una de las siguientes opciones:");
+		System.out.print("\n\t(1) Pago combinado de entradas");
+		System.out.print("\n\t(2) Pago individual");
 		System.out.print("\n");
 		}
 	/**

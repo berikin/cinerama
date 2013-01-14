@@ -18,21 +18,26 @@
    *@param percent Indica si la invocación del método es para un relleno de público de muestra aleatorio
    *o para una compra de tickets.
    */
-      public static void randomReplaceRoom(int[][] showroom,int seats, int roomnumber, boolean percent)
-      {
-         int max_people=seats, random_row=0, random_col=0;
-         boolean repeated=false;
-         int randompeoplecounter=0;
-         int[] roomsize=Utils.roomSize(showroom);
-      /////////////////////////////////////////////////////////////////////////////////////
-      //Si nos encontramos realizando un relleno de público calculamos el número final
-      //de butacas a rellenar en función del porcentaje recibido por parámetro y el tamaño
-      //de la sala
-      /////////////////////////////////////////////////////////////////////////////////////
+	public static void randomReplaceRoom(int[][] showroom,int seats, int roomnumber, boolean percent)
+		{
+		int max_people=seats, random_row=0, random_col=0;
+		boolean repeated=false;
+		int randompeoplecounter=0;
+		int[] roomsize=Utils.roomSize(showroom);
+		int combinedpayment=0, totalmoney=0, addonmode=0;
+		if (max_people==1)//Si se vende un ticket no mostramos el menú de venta de tickets combinada
+			{
+			combinedpayment=2;
+			}
+			/////////////////////////////////////////////////////////////////////////////////////
+			//Si nos encontramos realizando un relleno de público calculamos el número final
+			//de butacas a rellenar en función del porcentaje recibido por parámetro y el tamaño
+			//de la sala
+			/////////////////////////////////////////////////////////////////////////////////////
          if (percent)
-         {
+				{
             max_people=((roomsize[0]*roomsize[1])*seats)/100;
-         }
+				}
          int[][] randompeople=Constructors.makeRandomCounter(max_people,2);
          Printers.showInfo("\nRellenando la sala "+(roomnumber+1)+" con "+max_people+" asistentes. Por favor espere... ");
          for (int i=0;i<max_people; i++)
@@ -62,16 +67,38 @@
             randompeople[i][1]=random_col;
             if (percent==false)
             {
-					int addonmode=Inputs.addons();
-               Printers.buyedTicket(Cinerama.films[roomnumber], roomnumber, random_row, random_col,addonmode);
-               Printers.showInfo("\nRecoja su ticket, pulse intro para continuar.");
-               Utils.returnPause();
+				if (addonmode!=4 & addonmode!=5 & addonmode!=6)
+					{
+					addonmode=Inputs.addons(max_people);
+					}
+				////////////////////////////
+				//Método de pago combinado//
+				////////////////////////////
+				if (combinedpayment==0) //Escogemos el método de pago combinado o individual
+					{
+					combinedpayment=Inputs.paymentMethod();
+					}
+				if (combinedpayment==1) //Pago combinado muestra todos los tickets y al final el importe total y la pausa
+					{
+					totalmoney=totalmoney+Printers.buyedTicket(Cinerama.films[roomnumber], roomnumber, random_row, random_col, addonmode);
+					}
+				else //Pago individual
+					{
+					Printers.buyedTicket(Cinerama.films[roomnumber], roomnumber, random_row, random_col,addonmode); //Imprimimos el ticket de venta			
+					Printers.showInfo("\nRecoja su ticket, pulse intro para continuar.");
+					Utils.returnPause();
+					}
             }
          }
          for (int i=0;i<randompeople.length;i++)
          {
             replaceArray(showroom, randompeople[i][0], randompeople[i][1], roomnumber);
          }
+		if (combinedpayment==1)
+			{
+			Printers.showInfo("\nAbone el importe de "+totalmoney+" euros, recoja sus tickets y pulse intro para finalizar.");
+			Utils.returnPause();
+			}
       }
    /**
    *Método que modifica los array de salas de cine e información de las salas.
