@@ -1,9 +1,37 @@
 # cinerama
 
 
-Java (jGRASP) project developed for IES Galileo.
+Java (jGRASP) proyecto desarrollado por José Antonio Yáñez Jiménez para IES Galileo.
 
-## Version History
+## Funcionalidades
+
+* Posibilidad de crear de 1 a 20 salas de cine con un tamaño variable de 1 a 20 filas y de 1 a 20 butacas por cada fila (cada sala de cine puede tener un tamaño diferente).
+
+* Posibilidad de crear salas de cine con uno o dos pasillos verticales.
+
+* Posibilidad de añadir películas 2D y 3D (a partir de un listado predefinido de películas).
+
+* Posibildad de utilizar ejemplos de relleno automático en los que se crean salas de cine de ejemplo, se rellenan con películas e incluso con público ficticio que cuenta para las finanzas finales.
+
+* Posibilidad de comprar varias entradas y escoger la posición de las mismas mediante variados métodos.
+
+1. Método totalmente automático que posiciona de forma aleatoria sin asegurar asientos contiguos en caso de comprar varios tickets simultáneamente.
+2. Métodos manuales para posicionar ventas de varios tickets de forma contigua en distintos sectores de la sala (izquierdo, derecho o central en salas de doble pasillo).
+3. Método totalmente manual para escoger fila y butaca de cada ticket comprado.
+
+* Sistema avanzado de muestra de la ocupación de las salas de cine.
+
+* Sistemas de descuento por familia numerosa y carné joven.
+
+* Sistema de recargo por películas en proyección 3D.
+
+* Impresión de tickets de venta avanzados.
+
+* Sistema avanzado de tablas de beneficios y deducciones.
+
+* Huevos de pascua con los que podemos incluso conseguir entradas gratuitas que se deducen en las recaudaciones finales.
+
+## Historial de versiones
 
 
 ### 0.5
@@ -19,9 +47,9 @@ Java (jGRASP) project developed for IES Galileo.
 ### 0.4
 
 * Creado método nuevo para imprimir tablas avanzadas de beneficios y deducciones. Anteriormente se imprimia una tabla que agrupada los beneficios brutos, las deducciones y los beneficios totales de todas las películas. Con el nuevo sistema se diferencian 3 tipos de tablas:
-** Tabla que muestre los beneficios brutos por película
-** Tabla que muestre las deducciones por película
-** Tabla que muestre los beneficios netos por película
+1. Tabla que muestre los beneficios brutos por película
+2. Tabla que muestre las deducciones por película
+3. Tabla que muestre los beneficios netos por película
 
 * Desde el menú de recaudación podrá escogerse visualizar cada una de las tablas individualmente o todas en conjunción.
 
