@@ -180,6 +180,10 @@ class Easter
 							Inputs.orderMethods(Cinerama.rooms[film], Integer.MAX_VALUE, 2, film); 
 							break;
 							}
+						else
+							{
+							break;
+							}
 						}
 					} while(1==1);
 				break;		

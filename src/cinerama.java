@@ -38,10 +38,16 @@ class Cinerama
 	/**
 	*Variable encargada de almacenar la información de las salas de cine
 	*Se rellena en función de las salas que creen.
-	*Tiene dos dimensiones: una para especificar la sala de cine a la que se refiere y
-	*otra para almacenar la información relativa a la misma; siendo ésta la cantidad de
-	*butacas, butacas ocupadas, si la sala es de pasillo simple (1) o doble (2) y el
-	*número de butacas obtenidas por easter egg.
+	* [0]-Butacas totales
+	* [1]-Butacas ocupadas
+	* [2]-Pasillo simple (1) o doble (2)
+	* [3]-Butacas gratuitas
+	* [4]-Nº gafas 3D vendidas
+	* [5]-Nº descuentos carné joven
+	* [6]-Nº descuentos familia numerosa
+	* [7]-Beneficio bruto
+	* [8]-Deducciones totales
+	* [9]-Beneficio neto
 	*El tamaño del array lo definirán más adelante los métodos de la clase constructors
 	*en función de los requerimentos de sala deseados.
 	*/
@@ -91,7 +97,8 @@ class Cinerama
 			exitmenu=Inputs.mainMenu();
 			}while(exitmenu==false);
 		do
-			{	
+			{
+			Replaces.replaceBalance();
 			exitmenu=Inputs.recaudatoryMenu();
 			}while(exitmenu==false);		
 		}

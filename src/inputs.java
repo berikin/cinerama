@@ -223,24 +223,46 @@ public class Inputs
 			Printers.showLogo();
 			Printers.showRecaudatoryMenu();
 			option=Kread.readInt();
-			if (option<1 || option>2)
+			if (option<1 || option>5)
 				{
 				Printers.showInfo("\nEscogiste una opción no válida, prueba de nuevo");
 				Utils.pause(2000);				
 				}
 			else
 				{
-				if (option==1)
+				switch (option)
 					{
-					Printers.showRecaudatoryTable();
-					Printers.showInfo("\n\nOperación completada, pulsa intro para continuar.\n");
-					Utils.returnPause();
-					return false;
-					}
-				else
-					{
-					Printers.showInfo("\nGracias por utilizar Cinerama.");
-					return true;
+				   case 1:
+						Printers.showInfo("\n________Beneficios brutos___________________________________________________________________________\n");						
+						Printers.showGrossProfit();
+						Printers.showInfo("\n\nOperación completada, pulsa intro para continuar.\n");
+						Utils.returnPause();
+						return false;
+				   case 2:
+						Printers.showInfo("\n________Deducciones_________________________________________________________________________________\n");						
+						Printers.showDiscount();
+						Printers.showInfo("\n\nOperación completada, pulsa intro para continuar.\n");
+						Utils.returnPause();
+						return false;
+				   case 3:
+						Printers.showInfo("\n________Beneficios netos____________________________________________________________________________\n");
+						Printers.showNetProfit();
+						Printers.showInfo("\n\nOperación completada, pulsa intro para continuar.\n");
+						Utils.returnPause();
+						return false;
+				   case 4:
+						Printers.showInfo("\n________Beneficios brutos___________________________________________________________________________\n");						
+						Printers.showGrossProfit();
+						Printers.showInfo("\n\n________Deducciones_________________________________________________________________________________\n");						
+						Printers.showDiscount();
+						Printers.showInfo("\n\n________Beneficios netos____________________________________________________________________________\n");
+						Printers.showNetProfit();
+						Printers.showInfo("\n\nOperación completada, pulsa intro para continuar.\n");
+						Utils.returnPause();
+						return false;
+					default:
+						Printers.showInfo("\nGracias por utilizar Cinerama.");
+						return true;
 					}
 				}
 			} while(1==1);
@@ -519,7 +541,7 @@ public class Inputs
 	*/
 	public static int semiautomaticMethod(int[][] room, int option, int methodtype, int filmseats)
 		{
-		int row, col;
+		int row, col, addonmode;
 		boolean validrow=false, validcol=false;
 		int[] availablerows=Utils.aisleTickets(Cinerama.rooms[option],filmseats,methodtype);
 		Printers.showLogo();
@@ -590,7 +612,8 @@ public class Inputs
 		for (int i=seatgroups[col][0];i<=seatgroups[col][1];i++)
 			{
 			Replaces.replaceArray(room, row, i, option); //Modificamos el array de la sala
-			Printers.buyedTicket(Cinerama.films[option], option, row, i, false); //Imprimimos el ticket de venta			
+			addonmode=Inputs.addons();
+			Printers.buyedTicket(Cinerama.films[option], option, row, i, addonmode); //Imprimimos el ticket de venta			
 			Printers.showInfo("\nRecoja su ticket, pulse intro para continuar.");
 			Utils.returnPause();
 			}
@@ -610,7 +633,7 @@ public class Inputs
 	*/
 	public static int manualMethod(int[][] room, int option, boolean redemption)
 		{
-		int row, col;
+		int row, col,addonmode;
 		boolean validrow=false, validcol=false;
 		int[] rowsfree=Utils.rowsAvailable(room);
 		//////////////////
@@ -684,7 +707,55 @@ public class Inputs
 				}
 			} while (1==1);
 		Replaces.replaceArray(room, row, col, option); //Modificamos el array de la sala
-		Printers.buyedTicket(Cinerama.films[option], option, row, col, redemption); //Imprimimos el ticket de venta
+		////////////////////////////////////////////////////
+		//  Si estamos regalando la entrada asignamos el  //
+		//número correspondiente sin preguntar al usuario)//
+		////////////////////////////////////////////////////
+		if (redemption)
+			{
+			addonmode=3;
+			}
+		else
+			{
+			addonmode=Inputs.addons();
+			}
+		Printers.buyedTicket(Cinerama.films[option], option, row, col,addonmode); //Imprimimos el ticket de venta
 		return 1;
+		}
+	/*
+	*Método para administrar descuentos en los tickets de venta
+	*Se activa en el momento inmediatamente anterior a la impresión del ticket
+	*Se pregunta si se desea una entrada estándar, una con descuento por carné joven
+	*o una con descuento por familia numerosa. El precio varía en función del tipo de ticket
+	*@return Número en función de la opción escogida, lo que sirve para saber qué descuento escoger.
+	*/	
+	public static int addons()
+		{
+		int addonopt;
+		do
+			{
+			Printers.showAddonsMenu();
+			addonopt=Kread.readInt();
+			if (addonopt<1 || (addonopt>3))
+				{
+				Printers.showInfo("\nEscogiste una opción no válida, inténtalo de nuevo");
+				Utils.pause(2000);
+				}
+			else
+					{
+					break;
+					}
+				} while (1==1);
+		switch (addonopt)
+			{
+		   case 2:
+		      Cinerama.filminfo[option][5]++;
+				return 1;
+		   case 3:
+		      Cinerama.filminfo[option][6]++;
+				return 2;
+			default:
+				return 0;
+			}
 		}
 	}

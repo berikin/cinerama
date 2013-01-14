@@ -126,14 +126,17 @@
 		//Array de 2 dimensiones
 		//Primera dimensión para especificar la sala/película
 		//Segunda dimensión:
-		//		Butacas totales
-		//		Butacas ocupadas
-		//		Sala de pasillo simple (1) o doble (2)
-		//		Número de butacas obtenidas por easter egg
-		//		Número de butacas con descuento carnet joven
-		//		Número de butacas con descuento familia numerosa
-		//		Número de butacas con recargo gafas 3D
-		int[][] filminfo=new int[showrooms.length][4];
+		// [0]-Butacas totales
+		// [1]-Butacas ocupadas
+		// [2]-Pasillo simple (1) o doble (2)
+		// [3]-Butacas gratuitas
+		// [4]-Nº gafas 3D vendidas
+		// [5]-Nº descuentos carné joven
+		// [6]-Nº descuentos familia numerosa
+		// [7]-Beneficio bruto
+		// [8]-Deducciones totales
+		// [9]-Beneficio neto
+		int[][] filminfo=new int[showrooms.length][10];
 		for (int i=0; i<filminfo.length;i++)
 			{
 			roomsize=Utils.roomSize(showrooms[i]);

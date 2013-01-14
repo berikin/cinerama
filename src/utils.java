@@ -331,7 +331,7 @@ class Utils
 				max_for=size[1];
 		      break;
 			}
-		int[] optionalrows=new int[size[1]];
+		int[] optionalrows=new int[size[0]];
 		for (int i=0; i<optionalrows.length; i++)
 			{
 			optionalrows[i]= Integer.MAX_VALUE;
