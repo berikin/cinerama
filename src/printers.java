@@ -36,6 +36,16 @@ class Printers
 		System.out.print("\n\nRelleno (1-4):");
 		}
 	/**
+	*Método que muestra el menú compra de gafas 3D
+	*/
+	public static void showGlassesMenu(int pairs)
+		{
+		System.out.print("\nCinerama le ofrece la posibilidad de comprar");
+		System.out.print("\nlas fantásticas gafas 3D modelo Vision.");
+		System.out.print("\nSi no desea ningún par simplemente pulse 0");
+		System.out.print("\n\nPares de gafas a comprar (0-"+pairs+"): ");
+		}
+	/**
 	*Método para realizar prints desde otras partes de la aplicación
 	*que no sean la clase printers
 	*@param info Cadena de texto que debe imprimirse

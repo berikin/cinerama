@@ -19,20 +19,20 @@ s#q0test
 a%\011doc%s	b	c1	d0!209;g
 %\011src%sUtils.java
 %\011src%sPrinters.java
-%\011src%sKread.java
 %\011src%sReplaces.java
+%\011src%sKread.java
 %\011src%sCinerama.java
-%\011src%sConstructors.java
 %\011src%sSamples.java
+%\011src%sConstructors.java
 %\011src%sEaster.java
 %\011src%sInputs.java
 !182;f
 %	src%sUtils.java
 %	src%sPrinters.java
-%	src%sKread.java
 %	src%sReplaces.java
+%	src%sKread.java
 %	src%sCinerama.java
-%	src%sConstructors.java
 %	src%sSamples.java
+%	src%sConstructors.java
 %	src%sEaster.java
 %	src%sInputs.java

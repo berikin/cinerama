@@ -607,6 +607,10 @@ public class Inputs
 				break;
 				}
 			} while (1==1);
+		if (Cinerama.films[option][1].equals("yes"))
+			{
+			glasses3D(filmseats,option);
+			}
 		//////////////////////////////////////////
 		//Proceso de venta y cambio de ocupación//
 		//////////////////////////////////////////
@@ -813,6 +817,39 @@ public class Inputs
 			else
 				{
 				return payopt;
+				}
+			} while (1==1);
+		}
+	/*
+	*Método para comprar gafas 3D cuando la proyección es 3D
+	*Se consulta al usuario si desea algún par de gafas 3D. Puede escogerse 
+	*la opción 0 para no comprar nada o hasta un máximo de pares equivalente
+	*a las entradas que se van a comprar.
+	*/	
+	public static void glasses3D(int filmseats,int option)
+		{
+		int glassesopt;
+		String glassesascii="\n                                    ~+O88O$$$$Z$77$~==\n                               +7NNNDDD$      ,$$$$$7777777~?+\n                              NDDNNDD             777777777Z777II7:?+\n                               8NNZ                    88$77II7III7$III77:=+\n                                                                .77IIII7=+OO~\n                                                                    +.,..+ZOOO7\n                                                                 ,.?.:Z~ ~ OOO:\n                                                                .,.Z~ ~ ~ ~O8\n                                                              .?,~ ~ ~ ~ ~ 8O\n~DNNNNDD$D+                                                   ,O~ ~ ~ ~ ~ ~N$\n:ONN.  ~DDDID$                                        ,,:.~.:~O~ ~ ~ ~ ~ ~ N\n.+$      ONN8D$$8                                .,+++OOO8OOOOZ ~ ~ ~ ~ ~ +D\n           NDNDDD8~DO                         .,,OO~ ~ ~Z88O88$~ ~ ~ ~ ~ ~M\n            NDNNDDDDD8=OO                  .:.Z ~ ~ ~ ~ ODO  N8 ~ ~ ~ ~ .I:\n               =DDDD.D.888?.O7..        .$.I ~ ~ ~ ~ ~ ~DD   8N~ ~ ~ ~,.O\n                    DDDZ8,8ODDON7=+8O+.I.88 ~ ~ ~ ~ ~ ~ NO    ODI.~++~?\n                         8DDD88NO~=8ON~88Z ~ ~ ~ ~ ~ ~ ~IM       7$$=\n                               :8NOMND888 ~ ~ ~ ~ ~ ~ ~8O\n                                 ?NNNN8D8~ ~ ~ ~ ~ ~ ~MD\n                                       ND ~ ~ ~ ~ ~ ~,O\n                                       DN? ~ ~ ~ ~ ~:Z\n                                       IDD~ ~ ~ ~,:O\n                                        $DD ~ ~:O~\n                                         ,$ZZ7:\n";
+		do
+			{
+			Printers.showLogo();
+			Printers.showGlassesMenu(filmseats);
+			glassesopt=Kread.readInt();
+			if (glassesopt<0 || (glassesopt>filmseats))
+				{
+				Printers.showInfo("\nEscogiste una opción no válida, inténtalo de nuevo");
+				Utils.pause(2000);
+				}
+			else
+				{
+				Cinerama.filminfo[option][4]=(Cinerama.filminfo[option][4]+glassesopt);
+				if (glassesopt!=0)
+					{
+					Printers.showInfo(glassesascii);
+					Printers.showInfo("\nRecoja sus "+glassesopt+" pares de gafas. Son "+(Cinerama.PRIZES[2]*glassesopt)+" Euros.");
+					Utils.returnPause();
+					return;
+					}
 				}
 			} while (1==1);
 		}
