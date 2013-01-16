@@ -1,7 +1,7 @@
 /**
 *Clase que contiene los métodos que construyen
 *las salas de cine, las peliculas
-*@version 0.4
+*@version 0.5
 *@author José Antonio Yáñez Jiménez
 */  
 	class Constructors
@@ -16,10 +16,9 @@
    *En la segunda dimensión hacemos referencia a las filas de la sala.
    *En la tercera dimensión hacemos referencia a las columnas de la sala.
    *@param roomsatribs Tamaño de cada sala indicado en filas y columnas
-   *@param AVAILABLE constante que define como denominar a las butacas libres
    *@return devuelve el nuevo array de las salas de cine
    */
-	public static int[][][] makeRooms(int[] max_room, int[][] roomsatribs, int AVAILABLE)
+	public static int[][][] makeRooms(int[] max_room, int[][] roomsatribs)
 		{
 		int[][][] showrooms=new int[roomsatribs.length][max_room[0]][max_room[1]];
 		for (int i=0; i<showrooms.length; i++)
@@ -28,7 +27,7 @@
 				{
 				for (int x=0; x<roomsatribs[i][1]; x++)
 					{
-					showrooms[i][j][x]=AVAILABLE;
+					showrooms[i][j][x]=Cinerama.AVAILABLE;
                }
             }
          }

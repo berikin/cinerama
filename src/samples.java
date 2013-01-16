@@ -20,7 +20,7 @@
 		{
 		int[][] roomsatribs={{10,20,2},{8,12,1},{8,10,2},{9,8,1}};
 		int[] max_room={10,20};
-		int[][][] rooms=Constructors.makeRooms(max_room,roomsatribs,Cinerama.AVAILABLE);
+		int[][][] rooms=Constructors.makeRooms(max_room,roomsatribs);
 		Cinerama.filminfo=Constructors.makeFilmInfo(rooms,roomsatribs);
 		return rooms;
 		}
@@ -35,7 +35,7 @@
 		{
 		int[][] roomsatribs={{12,12,2},{10,8,1}};
 		int[] max_room={12,12};
-		int[][][] rooms=Constructors.makeRooms(max_room,roomsatribs,Cinerama.AVAILABLE);
+		int[][][] rooms=Constructors.makeRooms(max_room,roomsatribs);
 		Cinerama.filminfo=Constructors.makeFilmInfo(rooms,roomsatribs);
 		return rooms;
 		}

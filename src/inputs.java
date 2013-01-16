@@ -12,6 +12,126 @@ public class Inputs
 	*que pasarla por los distintos métodos como parámetro.
 	*/
 	public static int option;
+	public static void firstMenu()
+		{
+		int firstopt=0;
+		boolean showadmin=true;
+		do
+			{
+			Printers.showLogo();
+			Printers.showFirstMenu(showadmin);
+			firstopt=Kread.readInt();
+			if (firstopt<1 || firstopt>3)
+				{
+				Printers.showInfo("\nEscogiste una opción no válida, prueba de nuevo");
+				Utils.pause(2000);
+				}	
+			else
+				{
+				switch (firstopt)
+					{
+					case 3:
+						Printers.showInfo("\n\n                MMM=~==================NMMM\n             MMD========+===MMMMMMN=~======MM\n          MMN~=============~MMMMMMMMMMMM~=====MM\n        MM======MMM==========MMMMMMMMMMMMM~=====MM\n      MMO=====MMMMMM==========MMMMMMMMMMMI========MM\n     MM====~MMMMMMMMM=========MMMMMMMMMM============M\n    MM====MMMMMMMMMMM~=========MMMMMMMO=============~M\n   M====~MMMMMMMMMMMMM==========7MMMM~==========MMM===M\n  M+====MMMMMMMMMMMMMMM===========~~===========MMMMM===M\n MM====MMMMMMMMMMMMMMMN======================~MMMMMMM===M\nMM======~==DNMMMMMMMM8=======================MMMMMMMMM===M\nM==================~========================MMMMMMMMMMM===M\n$==========NMMD~==~=========================MMMMMMMMMMM+==M\n===~=~+=====M=====~==M=======================MMMMMMMMMMM===M\n============MM8===================================MMMMMM===M\n=====================OO===================MM============~==M\n====MMMMMMMM?~=~==================+=======M======+MMI======~\n====MMMMMMMMMMMMMM=========================MN=~~======~=====\n====MMMMMMMMMMMMMMM==============================~8MN+~=====\n====MMMMMMMMMMMMMMM==========================~==============\n====MMMMMMMMMMMMMMM====MMM=M=========M=====$MMMMMMMMMM=====M\n=====MMMMMMMMMMMMM====O===8~========M=M====MMMMMMMMMMMMM===M\nM====MMMMMMMMMMM~===8====M=========M=======MMMMMMMMMMMMM===M\nM=====MMMMMMMMM====M===================D===MMMMMMMMMMMM===8M\nMM====?MMMMMM8====?===M~===7MMMM====N===M===MMMMMMMMMM====M\n MM====DMMMM====M===~M====MMMMMMMN===M~=====MMMMMMMMMM===MM\n  M======MM===~M========+MMMMMMMMM=======Z===MMMMMMM7===+M\n  MM==============M====MMMMMMMMMMMM~==D===$===MMMMM~====M\n   MM~======N~===N~===MMMMMMMMMMMMM====N======MMMM~====M\n    MM+========+====IMMMMMMMMMMMMMMM~====~=M===M~====+M\n     MMM===========MMMMMMMMMMMMMMMMMM===M~==========MM\n      MMM==========MMMMMMMMMMMMMMMMMM====+========OM\n        MMM==========MMMMMMMMMMMMMMMMD==========NM\n          MMM===========~==7MMMMMZI=~========~MM\n            MMMM===========================MMM\n               MMMMM+================~=NMMM\n                 MMMMMMMMMMN====MMMMMMM\n");
+						Printers.showInfo("\nCinerama es una aplicación desarrollada en Java utilizando el IDE\njGRASP por José Antonio Yáñez Jiménez como proyecto de navidades\ndel curso 2012-2013 de Desarrollo de aplicaciones Web en el centro\nIES Galileo de Valladolid.\n\nLa peculiaridad del proyecto radica en\nla restricción del uso de Java como un lenguaje de objetos, por lo\nque no se pueden realizar llamadas a ficheros externos ni crear\nobjetos (salvo por las matrices).\n\n\nVersión 1.0, Enero de 2013.\n");
+				  		Printers.showInfo("\nPulsa intro para volver al menú");
+						Utils.returnPause(); 	
+						break;
+					case 1:
+				      showadmin=adminMenu();
+						break;
+					case 2:
+				      switch (Cinerama.samplenum)
+							{
+						   case 1:
+								Cinerama.rooms=Samples.cinema1();
+								Cinerama.films=Samples.showfilms1();
+								Samples.fillrooms(40,60);
+						      break;
+						   case 2:
+								Cinerama.rooms=Samples.cinema1();
+								Cinerama.films=Samples.showfilms1();
+						      break;
+						   case 3:
+								Cinerama.rooms=Samples.cinema2();
+								Cinerama.films=Samples.showfilms2();
+						      break;
+							case 4:
+								Inputs.manualRooms();
+								break;
+							default:
+								Cinerama.rooms=Samples.cinema1();
+								Cinerama.films=Samples.showfilms1();
+								break;
+							}
+						return;
+					}
+				}
+			}while(1==1);
+		}
+	public static boolean adminMenu()
+		{
+		String[] access={"admin","admin"};
+		String[] typeaccess=new String[2];
+		int accesscount=0;
+		int admoption=0;
+		do
+			{
+			Printers.showInfo("\nTeclea el usuario: ");
+			typeaccess[0]=Kread.readString();
+			Printers.showInfo("\nTeclea la clave: ");
+			typeaccess[1]=Kread.readString();
+			if (!typeaccess[0].equals(access[0]) || !typeaccess[1].equals(access[1]))
+				{
+				accesscount++;
+				Printers.showInfo("\nDatos incorrectos, prueba de nuevo (Intento "+accesscount+" de 3).");
+				}
+			else
+				{
+				do
+					{
+					Printers.showLogo();
+					Printers.showInfo("\nEscoge una opción a modificar (Pulsa 0 para salir del menú de administración)\n\n");
+					Printers.showAdminTable();
+					admoption=Kread.readInt();
+					if (admoption<0 || admoption>6)
+						{
+						Printers.showInfo("\nEscogiste una opción no válida, prueba de nuevo");
+						Utils.pause(2000);
+						}
+					else
+						{
+						switch (admoption)
+							{
+						   case 1:
+						  		Cinerama.samplenum=Inputs.selectSample();
+								break;
+						   case 2:
+								Replaces.replaceAdm("\nNuevo precio para las entradas (1-40): ", 0, 1, 40);
+						      break;
+						   case 3:
+								Replaces.replaceAdm("\nNuevo precio para el recargo 3D (1-10): ", 1, 1, 10);
+						      break;
+						   case 4:
+								Replaces.replaceAdm("\nNuevo precio para las gafas 3D (1-5): ", 2, 1, 5);
+						      break;
+						   case 5:
+								Replaces.replaceAdm("\nNuevo descuento para el carné joven (1-6): ", 3, 1, 6);
+						      break;
+						   case 6:
+								Replaces.replaceAdm("\nNuevo descuento para familia numerosa (1-6): ", 4, 1, 6);
+						      break;
+							default: //SALIDA
+								return true;
+							}
+						}
+					} while(1==1);
+				}
+			} while (accesscount!=3);
+		Printers.showInfo("\nHas sobrepasado el límite de intentos. Como medida de seguridad el");
+		Printers.showInfo("\nmenú de administración queda deshabilitado.");
+		Utils.pause(2000);
+		return false;
+		}
 	/**
 	*Método que muestra el menú de selección
 	*para ejemplos de prueba y solicita por teclado la opción a escoger
@@ -119,7 +239,7 @@ public class Inputs
 		int max_cols=Utils.maxOfArray(showrooms,1);
 		int[] max_room={max_rows,max_cols};
 		//Relleno de arrays de salas e información de las salas
-		Cinerama.rooms=Constructors.makeRooms(max_room,showrooms,Cinerama.AVAILABLE);
+		Cinerama.rooms=Constructors.makeRooms(max_room,showrooms);
 		Cinerama.filminfo=Constructors.makeFilmInfo(Cinerama.rooms,showrooms);
 		///////////
 		//Películas
@@ -846,7 +966,7 @@ public class Inputs
 				if (glassesopt!=0)
 					{
 					Printers.showInfo(glassesascii);
-					Printers.showInfo("\nRecoja sus "+glassesopt+" pares de gafas. Son "+(Cinerama.PRIZES[2]*glassesopt)+" Euros.");
+					Printers.showInfo("\nRecoja sus "+glassesopt+" pares de gafas. Son "+(Cinerama.prizes[2]*glassesopt)+" Euros.");
 					Utils.returnPause();
 					return;
 					}

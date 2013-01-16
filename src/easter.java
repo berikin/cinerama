@@ -5,11 +5,16 @@ import java.io.*;
 *Solo funcionan cuando la película para la que están diseñados se encuentra
 *entre las que se proyectan. Con los huevos de pascua se pueden obtener
 *entradas gratuitas.
-*@version 0.4
+*@version 0.5
 *@author José Antonio Yáñez Jiménez
 */
+
 class Easter
 	{
+	/**
+	*Variable para definir el código promocional de entradas
+	*/
+	static String promocode="CINERAMADAW";
 	/**
 	*Método de captura de teclado. El método se basa en kread.readString(),
 	*capturando la entrada de teclado y comprobando el contenido de ésta. Si
@@ -30,6 +35,11 @@ class Easter
 		catch (IOException e)
 			{}
 		texto=texto.toUpperCase();
+		if (texto.equals(promocode))
+			{
+			showEaster(3);
+			return Integer.MAX_VALUE;
+			}
 		if (texto.equals("BRUCE WAYNE"))
 			{
 			for (int i=0; i<Cinerama.films.length; i++)
@@ -74,11 +84,39 @@ class Easter
 		String answer;
 		switch (option)
 			{
+			case 3:
+				Printers.showInfo("\nCódigo promocional aceptado. Selecciona una película para obtener una entrada gratuita");
+				do
+					{
+					Printers.showFilmList();
+					choice=Kread.readInt();
+					if (choice==0)//Saliendo de la venta
+							{
+							return;
+							}
+						choice--;
+						if (choice<0 || choice>(Cinerama.filminfo.length-1))
+							{
+							Printers.showInfo("\nEscogiste una opción no válida, prueba de nuevo");
+							Utils.pause(2000);		
+							}
+						else if (Cinerama.filminfo[option][0]==Cinerama.filminfo[option][1])
+							{
+							Printers.showInfo("\nLa sala de esta proyección está llena, prueba de nuevo");
+							Utils.pause(2000);		
+							}
+						else
+							{
+							break;
+							}
+					} while(1==1);
+				easterWin(choice);
+				break;
 		   case 1:
 				String batman="\n       _==/          i     i          \\==_\n     /XX/            |\\___/|            \\XX\\\n   /XXXX\\            |XXXXX|            /XXXX\\\n  |XXXXXX\\_         _XXXXXXX_         _/XXXXXX|\n XXXXXXXXXXXxxxxxxxXXXXXXXXXXXxxxxxxxXXXXXXXXXXX\n|XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n|XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|\n XXXXXX/^^^^\"\\XXXXXXXXXXXXXXXXXXXXX/^^^^^\\XXXXXX\n  |XXX|       \\XXX/^^\\XXXXX/^^\\XXX/       |XXX|\n    \\XX\\       \\X/    \\XXX/    \\X/       /XX/\n       \"\\       \"      \\X/      \"      /\"\n";
 				Printers.showInfo(batman);
 				int dk=Integer.MAX_VALUE,bb=Integer.MAX_VALUE;
-				String[] villains={"BANE","CATWOMAN","DOS CARAS","ESPANTAPAJAROS","JOKER","PINGÜINO","HARLEY QUINN","HIEDRA VENENOSA","RAS AL GHUL","ZSASZ","CROC","ENIGMA"};
+				String[] villains={"BANE","CATWOMAN","DOS CARAS","ESPANTAPAJAROS","JOKER","PING\u00B8INO","PINGÜINO","HARLEY QUINN","HIEDRA VENENOSA","RAS AL GHUL","ZSASZ","CROC","ENIGMA"};
 				int[] answers=new int[3];
 				for (int i=0; i<answers.length; i++)
 					{
@@ -150,7 +188,7 @@ class Easter
 				Printers.showInfo("\nLas raíces no se ven, y es más alta que un árbol. Arriba y arriba sube, y sin embargo no crece. ");
 				answer=Kread.readString();
 				answer=answer.toUpperCase();
-				if (!answer.equals("MONTA\u00D2A") & !answer.equals("UNA MONTA\u00D2A") & !answer.equals("LA MONTA\u00D2A"))
+				if (!answer.contains("MONTA\u00D2A") & !answer.contains("MONTAÑA"))
 					{
 					Printers.showInfo("\n¡Lástima, fallaste, te comeré vivo!");
 					Utils.pause(2000);
@@ -159,7 +197,7 @@ class Easter
 				Printers.showInfo("\nTreinta caballos blancos en una sierra colorada. Primero mordisquean, luego machacan y luego descansan. ");
 				answer=Kread.readString();
 				answer=answer.toUpperCase();
-				if (!answer.equals("DIENTES") & !answer.equals("LOS DIENTES"))
+				if (!answer.contains("DIENTES"))
 					{
 					Printers.showInfo("\n¡Lástima, fallaste, huiré de aqui!");
 					Utils.pause(2000);
@@ -168,14 +206,14 @@ class Easter
 				Printers.showInfo("\nCanta sin voz, vuela sin alas, sin dientes muerde, sin boca habla. ");
 				answer=Kread.readString();
 				answer=answer.toUpperCase();
-				if (!answer.equals("VIENTO") & !answer.equals("EL VIENTO"))
+				if (!answer.contains("VIENTO"))
 					{
 					Printers.showInfo("\n¡Lástima, fallaste, te comeré vivo!");
 					Utils.pause(2000);
 					return;
 					}
 				Printers.showInfo("\nUn ojo en la cara azul vio un ojo en la cara verde. \"Ese ojo es como este. ojo\"");
-				Printers.showInfo(", dijo el ojo primero, \"pero en lugares bajos, y no en lugares altos\". ");
+				Printers.showInfo(",\n dijo el ojo primero, \"pero en lugares bajos, y no en lugares altos\". ");
 				answer=Kread.readString();
 				answer=answer.toUpperCase();
 				if (!answer.equals("EL SOL SOBRE LAS MARGARITAS") & !answer.equals("SOL SOBRE MARGARITAS") & !answer.equals("SOL SOBRE LAS MARGARITAS"))
@@ -185,10 +223,10 @@ class Easter
 					return;
 					}
 				Printers.showInfo("\nNo puedes verla ni sentirla, y ocupa todos los huecos: no puedes olerla ni oírla, está detrás de los astros,");
-				Printers.showInfo("y está al píe de las colinas, llega primero, y se queda; mala risas y acaba vidas. ");
+				Printers.showInfo("\ny está al píe de las colinas, llega primero, y se queda; mala risas y acaba vidas. ");
 				answer=Kread.readString();
 				answer=answer.toUpperCase();
-				if (!answer.equals("LA OSCURIDAD") & !answer.equals("OSCURIDAD"))
+				if (!answer.contains("OSCURIDAD"))
 					{
 					Printers.showInfo("\n¡Lástima, fallaste, te comeré vivo!");
 					Utils.pause(2000);
@@ -197,17 +235,17 @@ class Easter
 				Printers.showInfo("\nTodos viven sin aliento; y fríos como los muertos, nunca con sed, siempre bebiendo, todos en malla, siempre en silencio. ");
 				answer=Kread.readString();
 				answer=answer.toUpperCase();
-				if (!answer.equals("PEZ") & !answer.equals("PECES") & !answer.equals("UN PEZ") & !answer.equals("LOS PECES"))
+				if (!answer.contains("PEZ") & !answer.contains("PECES"))
 					{
 					Printers.showInfo("\n¡Lástima, fallaste, huiré de aqui!");
 					Utils.pause(2000);
 					return;
 					}
 				Printers.showInfo("\nDevora todas las cosas: aves, bestias, plantas y flores; roe el hierro, muerde el acero, y pulveriza la peña compacta;");
-				Printers.showInfo("mata reyes, arruina ciudades y derriba las altas montañas. ");
+				Printers.showInfo("\nmata reyes, arruina ciudades y derriba las altas montañas. ");
 				answer=Kread.readString();
 				answer=answer.toUpperCase();
-				if (!answer.equals("TIEMPO") & !answer.equals("EL TIEMPO"))
+				if (!answer.contains("TIEMPO"))
 					{
 					Printers.showInfo("\n¡Lástima, fallaste, te comeré vivo!");
 					Utils.pause(2000);
@@ -216,7 +254,7 @@ class Easter
 				Printers.showInfo("\n¿Qué tengo en el bolsillo? ");
 				answer=Kread.readString();
 				answer=answer.toUpperCase();
-				if (!answer.equals("ANILLO") & !answer.equals("EL ANILLO"))
+				if (!answer.contains("ANILLO"))
 					{
 					Printers.showInfo("\n¡Lástima, fallaste, huiré de aqui!");
 					Utils.pause(2000);
@@ -247,6 +285,7 @@ class Easter
 									}
 								}
 							easterWin(film);
+							break;
 							}
 						else
 							{

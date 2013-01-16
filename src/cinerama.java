@@ -1,6 +1,6 @@
 /**
 *Clase que contiene el método main
-*@version 0.4
+*@version 0.5
 *@author José Antonio Yáñez Jiménez
 */
 class Cinerama
@@ -14,14 +14,14 @@ class Cinerama
 	*/
 	static final int USED=2;
 	/**
-	*Constante para definir los precios
+	*Variable para definir los precios
 	* [0]-Precio base de entrada
 	* [1]-Recargo por proyección 3D
 	* [2]-Recargo por gafas 3D
 	* [3]-Descuento carné joven
 	* [4]-Descuento familia numerosa
 	*/
-	static final int[] PRIZES={6,2,1,2,2};
+	static int[] prizes={6,2,1,2,2};
 	/**
 	*Constante para definir el precio del suplemento 3D
 	*/
@@ -63,35 +63,18 @@ class Cinerama
 	*/
 	static String[][] films;
 	/**
+	*Variable encargada de seleccionar el tipo de relleno por defecto para salas y películas.
+	*Por defecto es 1 para que se genere el relleno express. En el menú de administración puede
+	*modificarse esto.
+	*/
+	static int samplenum=1;
+	/**
 	*Método principal de la aplicación, desde el que se lanza la misma
 	*/
 	public static void main(String[] args)
 		{
 		boolean exitmenu=false;
-		int sample=Inputs.selectSample();
-		switch (sample)
-			{
-		   case 1:
-				rooms=Samples.cinema1();
-				films=Samples.showfilms1();
-				Samples.fillrooms(40,60);
-		      break;
-		   case 2:
-				rooms=Samples.cinema1();
-				films=Samples.showfilms1();
-		      break;
-		   case 3:
-				rooms=Samples.cinema2();
-				films=Samples.showfilms2();
-		      break;
-			case 4:
-				Inputs.manualRooms();
-				break;
-			default:
-				rooms=Samples.cinema1();
-				films=Samples.showfilms1();
-				break;
-			}
+		Inputs.firstMenu();
 		do
 			{	
 			exitmenu=Inputs.mainMenu();

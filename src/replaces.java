@@ -130,11 +130,11 @@
 			//             BENEFICIOS BRUTOS             //
 			///////////////////////////////////////////////
 			///////////////////////////////////////////////
-			aux=Cinerama.filminfo[i][1]*Cinerama.PRIZES[0]; //Precio base entradas
+			aux=Cinerama.filminfo[i][1]*Cinerama.prizes[0]; //Precio base entradas
 			if (Cinerama.films[i][1].equals("yes"))
 				{
-				aux=aux+(Cinerama.filminfo[i][1]*Cinerama.PRIZES[1]); //Recargo por 3D
-				aux=aux+(Cinerama.filminfo[i][4]*Cinerama.PRIZES[2]); //Posible recargo de gafas vendidas
+				aux=aux+(Cinerama.filminfo[i][1]*Cinerama.prizes[1]); //Recargo por 3D
+				aux=aux+(Cinerama.filminfo[i][4]*Cinerama.prizes[2]); //Posible recargo de gafas vendidas
 				}
 			Cinerama.filminfo[i][7]=aux; //Beneficio Bruto de la película
 			///////////////////////////////////////////////
@@ -143,12 +143,12 @@
 			///////////////////////////////////////////////
 			///////////////////////////////////////////////
 			aux=0;
-			aux=Cinerama.filminfo[i][5]*Cinerama.PRIZES[3]; //Posible descuento de carné joven
-			aux=aux+Cinerama.filminfo[i][6]*Cinerama.PRIZES[4]; //Posible descuento de familia numerosa
-			aux=aux+Cinerama.filminfo[i][3]*Cinerama.PRIZES[0]; //Posible descuento de entradas regaladas
+			aux=Cinerama.filminfo[i][5]*Cinerama.prizes[3]; //Posible descuento de carné joven
+			aux=aux+Cinerama.filminfo[i][6]*Cinerama.prizes[4]; //Posible descuento de familia numerosa
+			aux=aux+Cinerama.filminfo[i][3]*Cinerama.prizes[0]; //Posible descuento de entradas regaladas
 			if (Cinerama.films[i][1].equals("yes"))
 				{
-				aux=aux+Cinerama.filminfo[i][3]*Cinerama.PRIZES[1]; //Posible descuento de entradas regaladas
+				aux=aux+Cinerama.filminfo[i][3]*Cinerama.prizes[1]; //Posible descuento de entradas regaladas
 				}
 			Cinerama.filminfo[i][8]=aux; //Deducción total de la película
 			///////////////////////////////////////////////
@@ -158,5 +158,22 @@
 			///////////////////////////////////////////////
 			Cinerama.filminfo[i][9]=Cinerama.filminfo[i][7]-Cinerama.filminfo[i][8];
 			}
+		}
+	public static void replaceAdm(String change, int intchange, int min_prize, int max_prize)
+		{
+		do
+			{
+			Printers.showInfo(change);
+			Cinerama.prizes[intchange]=Kread.readInt();
+			if (Cinerama.prizes[intchange]<min_prize || Cinerama.prizes[intchange]>max_prize)
+				{
+				Printers.showInfo("\nEscogiste un precio no válido, prueba de nuevo");
+				Utils.pause(2000);
+				}
+			else
+				{
+				return;
+				}
+			} while(1==1);
 		}
    }

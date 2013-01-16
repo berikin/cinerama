@@ -1,7 +1,9 @@
 # cinerama
 
 
-Java (jGRASP) proyecto desarrollado por José Antonio Yáñez Jiménez para IES Galileo.
+Proyecto Java (jGRASP) desarrollado por José Antonio Yáñez Jiménez para IES Galileo.
+
+### Última revisión 0.5, 16 de Enero de 2013.
 
 ## Funcionalidades
 
@@ -15,9 +17,9 @@ Java (jGRASP) proyecto desarrollado por José Antonio Yáñez Jiménez para IES 
 
 * Posibilidad de comprar varias entradas y escoger la posición de las mismas mediante variados métodos.
 
-1. Método totalmente automático que posiciona de forma aleatoria sin asegurar asientos contiguos en caso de comprar varios tickets simultáneamente.
-2. Métodos manuales para posicionar ventas de varios tickets de forma contigua en distintos sectores de la sala (izquierdo, derecho o central en salas de doble pasillo).
-3. Método totalmente manual para escoger fila y butaca de cada ticket comprado.
+	1. Método totalmente automático que posiciona de forma aleatoria sin asegurar asientos contiguos en caso de comprar varios tickets simultáneamente.
+	2. Métodos manuales para posicionar ventas de varios tickets de forma contigua en distintos sectores de la sala (izquierdo, derecho o central en salas de doble pasillo).
+	3. Método totalmente manual para escoger fila y butaca de cada ticket comprado.
 
 * Sistema avanzado de muestra de la ocupación de las salas de cine.
 
@@ -31,10 +33,26 @@ Java (jGRASP) proyecto desarrollado por José Antonio Yáñez Jiménez para IES 
 
 * Huevos de pascua con los que podemos incluso conseguir entradas gratuitas que se deducen en las recaudaciones finales.
 
+* Sistema de venta de grafas 3D en salas con proyección en 3D.
+
+* Panel completo de administración desde el que poder modificar los valores por defecto de precios, descuentos y recargos, así como la disposición de las salas justo antes de lanzar la aplicación principal.
+
+* Rediseño de la ejecución inicial de la aplicación para adaptarla al nuevo diseño de menú inicial y panel de administración.
+
+* Sección de "acerca de" con información básica sobre el proyecto.
+
+* Gran implementación de gráficos mediante arte ascii.
+
 ## Historial de versiones
 
 
 ### 0.5
+
+### Major Release.
+
+* Añadido menú de administración desde el que poder editar características del cine como los rellenos de salas y películas, los precios de las entradas, los precios de los suplementos y de descuentos.
+
+* Añadida sección "Acerca de".
 
 * Añadido método para calcular los beneficios y deducciones automáticamente al cerrar el menú de venta de tickets. Así tenemos todo calculado para las tablas sin tener que hacer el cálculo cada vez que imprimimos una.
 
@@ -44,12 +62,19 @@ Java (jGRASP) proyecto desarrollado por José Antonio Yáñez Jiménez para IES 
 
 * Añadido Método para poder realizar un pago conjunto en compras de varios tickets a la vez. Con este sistema todos los tickets aparecen seguidos y después se nos muestra la suma que tiene que abonar el comprador seguida de la pausa, al contrario que con el método de pago individual, en el que cada vez que aparece un ticket se realiza una pausa para que el comprador lo recoja y pague.
 
+* Debug de la clase Easter añadiendo compatibilidades entre jGRASP para Windows y jGRASP para Mac (Solventados problemas de codificación usando workarounds)
+
+* Añadido Easter egg para poder adquirir entradas de forma gratuita para cualquier proyección utilizando un código promocional.
+
+* JavaDoc actualizado.
+
 ### 0.4
 
 * Creado método nuevo para imprimir tablas avanzadas de beneficios y deducciones. Anteriormente se imprimia una tabla que agrupada los beneficios brutos, las deducciones y los beneficios totales de todas las películas. Con el nuevo sistema se diferencian 3 tipos de tablas:
-1. Tabla que muestre los beneficios brutos por película
-2. Tabla que muestre las deducciones por película
-3. Tabla que muestre los beneficios netos por película
+
+	1. Tabla que muestre los beneficios brutos por película
+	2. Tabla que muestre las deducciones por película
+	3. Tabla que muestre los beneficios netos por película
 
 * Desde el menú de recaudación podrá escogerse visualizar cada una de las tablas individualmente o todas en conjunción.
 
@@ -57,7 +82,7 @@ Java (jGRASP) proyecto desarrollado por José Antonio Yáñez Jiménez para IES 
 
 ### 0.3
 
-### Revisión Principal.
+### Major Release.
 
 * Extracción de los 3 arrays sobre los que se basa la aplicación a la clase Cinerama para que puedan ser utilizados por todos los métodos del paquete como variables globales. Esto nos permite no tener que estar pasando continuamente como parámetros las referencias a estas variables que vamos a utilizar continuamente.
 
