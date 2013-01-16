@@ -5,7 +5,7 @@ import java.io.*;
 *Solo funcionan cuando la película para la que están diseñados se encuentra
 *entre las que se proyectan. Con los huevos de pascua se pueden obtener
 *entradas gratuitas.
-*@version 0.5
+*@version 1.0
 *@author José Antonio Yáñez Jiménez
 */
 
@@ -112,11 +112,14 @@ class Easter
 					} while(1==1);
 				easterWin(choice);
 				break;
+			/////////////////////////////////
+			//     EASTER EGG BATMAN       //
+			/////////////////////////////////
 		   case 1:
 				String batman="\n       _==/          i     i          \\==_\n     /XX/            |\\___/|            \\XX\\\n   /XXXX\\            |XXXXX|            /XXXX\\\n  |XXXXXX\\_         _XXXXXXX_         _/XXXXXX|\n XXXXXXXXXXXxxxxxxxXXXXXXXXXXXxxxxxxxXXXXXXXXXXX\n|XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n|XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|\n XXXXXX/^^^^\"\\XXXXXXXXXXXXXXXXXXXXX/^^^^^\\XXXXXX\n  |XXX|       \\XXX/^^\\XXXXX/^^\\XXX/       |XXX|\n    \\XX\\       \\X/    \\XXX/    \\X/       /XX/\n       \"\\       \"      \\X/      \"      /\"\n";
 				Printers.showInfo(batman);
 				int dk=Integer.MAX_VALUE,bb=Integer.MAX_VALUE;
-				String[] villains={"BANE","CATWOMAN","DOS CARAS","ESPANTAPAJAROS","JOKER","PING\u00B8INO","PINGÜINO","HARLEY QUINN","HIEDRA VENENOSA","RAS AL GHUL","ZSASZ","CROC","ENIGMA"};
+				String[] villains={"BANE","CATWOMAN","CARAS","ESPANTAPAJAROS","JOKER","PING\u00B8INO","PINGÜINO","HARLEY QUINN","HIEDRA VENENOSA","RAS AL GHUL","ZSASZ","CROC","ENIGMA"};
 				int[] answers=new int[3];
 				for (int i=0; i<answers.length; i++)
 					{
@@ -184,6 +187,9 @@ class Easter
 					Printers.showInfo("\nEscogiste una opción incorrecta, prueba de nuevo.");
 					Utils.pause(2000);
 					} while(1==1);
+			/////////////////////////////////
+			//    EASTER EGG EL HOBBIT     //
+			/////////////////////////////////
 			case 2:
 				Printers.showInfo("\nLas raíces no se ven, y es más alta que un árbol. Arriba y arriba sube, y sin embargo no crece. ");
 				answer=Kread.readString();
@@ -298,9 +304,9 @@ class Easter
 		      break;
 			}
 		}
-	/*
+	/**
 	*Método para dar una entrada gratuita
-	*@param filmname ID de la película sobre la que se obtiene la entrada gratuita
+	*@param film ID de la película sobre la que se obtiene la entrada gratuita
 	*/
 	public static void easterWin(int film)
 		{
@@ -311,5 +317,6 @@ class Easter
 		//Como número de entradas pasamos MAX_VALUE para que el sistema entienda que la entrada
 		//se ha conseguido con un easter egg y así no mostrar precio en el ticket de venta
 		Inputs.orderMethods(Cinerama.rooms[film], Integer.MAX_VALUE, 2, film); 
+		Utils.returnPause();
 		}
 	}

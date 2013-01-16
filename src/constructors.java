@@ -1,13 +1,21 @@
 /**
 *Clase que contiene los métodos que construyen
-*las salas de cine, las peliculas
-*@version 0.5
+*las salas de cine, las peliculas y su información
+*@version 1.0
 *@author José Antonio Yáñez Jiménez
 */  
 	class Constructors
    {
-	//Hay peliculas 3D disponibles en la posición 0 a 6
+	/**
+	*Constante que almacena el índice máximo de películas 3D
+	*disponibles para evitar tener que realizar un for buscando
+	*las películas que pueden ser 3D
+	*/
 	static final int AVAILABLE3D=6;
+	/**
+	*Variable que almacena las películas disponibles para
+	*ser seleccionadas.
+	*/
 	static String[][] FILMS_AVAILABLE={{"El hobbit","yes"},{"Avatar","yes"},{"Ice Age 4","yes"},{"Los vengadores","yes"},{"Men in black 3","yes"},{"Prometheus","yes"},{"The amazing spiderman","yes"},{"El caballero oscuro","no"},{"Pulp Fiction","no"},{"Alien","no"},{"K-paxx","no"},{"La naranja mecánica","no"},{"La lista de Schindler","no"},{"El pianista","no"},{"El cuervo","no"},{"Constantine","no"},{"Origen","no"},{"Titanic","no"},{"Star Wars","no"},{"Batman Begins","no"}};
    /**
    *Método que crea las salas de cine.

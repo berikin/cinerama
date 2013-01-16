@@ -1,6 +1,6 @@
 /**
 *Clase que contiene los métodos que modifican nuestros arrays
-*@version 0.4
+*@version 1.0
 *@author José Antonio Yáñez Jiménez
 */
    class Replaces
@@ -67,9 +67,31 @@
             randompeople[i][1]=random_col;
             if (percent==false)
             {
+				//////////////////////////////////////////
+				//               GAFAS 3D               //
+				//////////////////////////////////////////
+				if (Cinerama.films[roomnumber][1].equals("yes") & i==0)
+					{
+					Inputs.glasses3D(max_people,roomnumber);
+					}
 				if (addonmode!=4 & addonmode!=5 & addonmode!=6)
 					{
-					addonmode=Inputs.addons(max_people);
+					//////////////////////////////////////////////////////////
+					//Si i es 0 nos encontramos en la primera pasada,       //
+					//por lo que debemos mostrar todas las opciones.        //
+					//Pero si no lo es y llegamos a este punto es porque    //
+					//ya se ha elegido un método de descuento no combinado, //
+					//por lo que ya no debemos mostrar las opciones de      // 
+					//método de descuento combinado                         //
+					//////////////////////////////////////////////////////////
+					if (i==0)
+						{
+						addonmode=Inputs.addons(max_people,true);
+						}
+					else
+						{
+						addonmode=Inputs.addons(max_people,false);
+						}
 					}
 				////////////////////////////
 				//Método de pago combinado//
@@ -159,6 +181,14 @@
 			Cinerama.filminfo[i][9]=Cinerama.filminfo[i][7]-Cinerama.filminfo[i][8];
 			}
 		}
+	/**
+	*Método que sirve para modificar una cantidad de nuestro array de precios
+	*Se invoca desde el menú de administración
+	*@param change Cadena que indica lo que vamos a modificar
+	*@param intchange Entero que indica el índice del array de precios
+	*@param min_prize Entero que indica la cantidad mínima que se puede establecer
+	*@param max_prize Entero que indica la cantidad máxima que se puede establecer
+	*/
 	public static void replaceAdm(String change, int intchange, int min_prize, int max_prize)
 		{
 		do
@@ -175,5 +205,15 @@
 				return;
 				}
 			} while(1==1);
+		}
+	public static void replacePromo(String change)
+		{
+		/**
+		*Método que sirve para modificar el código promocional para obtener
+		*entradas de forma gratuita
+		*@param change Cadena que indica lo que vamos a modificar
+		*/
+		Printers.showInfo(change);
+		Easter.promocode=Kread.readString().toUpperCase();
 		}
    }

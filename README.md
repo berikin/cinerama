@@ -3,7 +3,43 @@
 
 Proyecto Java (jGRASP) desarrollado por José Antonio Yáñez Jiménez para IES Galileo.
 
-### Última revisión 0.5, 16 de Enero de 2013.
+    ........MMM7$MMMNMNNMMMNMMMMMMMMMNMNNMNNNNNNNNNMMMMNMMMNNNNNNNNNNNNNNNMMNMNMNMMMMNMNMMMMMMM.........
+    .........DMMMMMMMMMMMNMNMMMMMMMMMNMMMNNMNNMMMMMNMMMNNMNNMMMMNMMMNNMNNNNMNMNMMNMMMNNMMDMMMM..........
+    .........7MMMM..........***************************************************..........MMMMM .........
+    .........,MMMM..........*  ____ _____        ___  ___   ___          ___  *..........MMMMM..........
+    ..........MMMM..........* |       |   |\  | |    |___| |   | |\  /| |   | *..........MMMM. .........
+    ..........MMMM..........* |       |   | \ | |-   | \   |___| | \/ | |___| *..........MMMM...........
+    ..........MMMM..........* |____ __|__ |  \| |___ |  \  |   | |    | |   | *..........MMMM ..........
+    ..........MMMM\.........*                                                 *........./MMMM...........
+    ..........MMMMN.........***************************************************.........DMMMM...........
+    ...........MMMM.....................................................................NNMMN...........
+    ..........OMMMM.....................................................................NNMMMM$I,.......
+    MMMMMMMMMMMMMMM.................... José Antonio  Yáñez Jiménez ....................MMNMMMMMMMMMMMMM
+    MMMMMMMMNMMMMMM\.................................................................../NNMMMMMM.I$MMMMM
+    MMMMMMMMMMMMMMMM...................................................................MNMMMMMMMMNMMMMMM
+    MMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNMNNNNNNNNNNNMNNNNNNNNNMNMNNNNNNNNNNMNNNNNNMNNMMNMMMMMMMMNNMMMMN
+    MMMMMMMMNMMMMMMMNMMMMNMNMMNMMMNNNNNNNNNNMNNMNNMMNMNNNNMNNNNNNNNNNNNMMNMNNNMNNNNNNMNMMMMMMMMMMMMMMMMN
+    MMMMMMMMMMZ7$7I$II?++I~:~,,,:,,.,,,,,,~,?,::,,:,::~:::,,,.:,:,,.:.,:,,,:,,,,.,,,,,,,:~+II?MMMMMMMMMM
+    MMMMMMM+~~:,.,,,. ........,,,....,...,..,,....,.............,..,....,,,.:,:,.,..,,,::::,,::++.MMMMMM
+    MMMN=,::,,:, .,.......   .   . .....     .  .   .         .... . . .........    ...+IIO8OOD$D8+DMNNN
+    MMMMMMMMNMMMMMMMNMMMMNMNMMNMMMNNNNNNNNNNMNNMNNMMNMNNNNMNNNNNNNNNNNNMMNMNNNMNNNNNNMNMMMMMMMMMMMMMMMMN
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ~~/MMMMMMMMMMMNMMM M.~~~~MNNMMNNNMMMM.MMNNN~~~~~~MMNMN.NNMDMNZNNMMMM~~~~~~~MMMMMMMMMMMMMMMMM~~~~MMMM
+    ~D8M    .  . .. . ..7M~~MMO... ........ ..,M~~~~M . .. . . .. . ..MM~~~~~M........... ...?MM~~M ....
+    ~ND  .....  .  ......M~~M:..... ... .. .... M~~M   . .     .  ...7.MN~.M~.  .=MNMMNDN7,..MMM: .?. $M
+    MMO MMMMMMMMMMMMMMM8 M~MM. MMMMMMMMMMMMMMMM,N~MD..MMMMMMMNMMMMMMMMM.MO NNMMNNMMNNMMMMMMMMMMM .ZMMMMN
+    8ZZMMMNNMM 5 MMMMMMMM.NMM.MNMMMNMM 6 MMMMMMMM,MN.MMMMNMNM 7 MMMNMMMMN...NMNNNMMM 8 MMMMMMMM..MMMMMN 
+    N$MMMMMMNMMMMMMMMMNMM8MM.MMMMMMMMMNMNNNMMMMM,MN MMNMMNNNMMMMMMMMMMMMO MMMMMNMMMMMMMNMMMMMMM $NMMMMNM
+    $8MMMMMMMMNMMMMNMMMMMM,M.MMMNMMMMMMMNMMMMMMM,N.IMMMMMMMMNMMNMMMMMMMN .MMMNMMMMMMMMMMMMMMMM .MMMMMMMN
+    8$MMMMMMNNMMNMMMMMMMMM~M MMMMMMNMMMMMMNMMMMM, .DNMNMNMNNNMNMNMMMMMM..+DI, ............IMNM.=MMMMMMMM
+    8NMM, .. .......... . ...MNMMMNMMMMM? . .. ............ .7NMNMMMMMD...................... .7MMMMMMN 
+    .  ........... ............MMMMMMN.........................MMMMMM ........................ MMNNN8...
+    D..........................=MMMMM ........................,IMMMMN..$  ......,:IO8$77O7. ..  MMMM ..?
+    , ~.DZZMNMMMDNNNMNNNNO~, ...MMMMM.=.. :8O8DMMMNMMNMMNMMNMN+.MMMM..8:DMMMMMMMNMMMMMMMMMMMMMMMIMM...NN
+    .78MNMMMMNMNMMMMMNMMMMMMNMM?MMMM, ,N8MMMMMMNNMMMMMNMNNNNNNMMMMMM..DMMNMMNNNNNDNNNNNNNMNNMNMMMMM ..MM
+
+### Última revisión 1.0, 16 de Enero de 2013.
 
 ## Funcionalidades
 
@@ -17,9 +53,9 @@ Proyecto Java (jGRASP) desarrollado por José Antonio Yáñez Jiménez para IES 
 
 * Posibilidad de comprar varias entradas y escoger la posición de las mismas mediante variados métodos.
 
-	1. Método totalmente automático que posiciona de forma aleatoria sin asegurar asientos contiguos en caso de comprar varios tickets simultáneamente.
-	2. Métodos manuales para posicionar ventas de varios tickets de forma contigua en distintos sectores de la sala (izquierdo, derecho o central en salas de doble pasillo).
-	3. Método totalmente manual para escoger fila y butaca de cada ticket comprado.
+	* Método totalmente automático que posiciona de forma aleatoria sin asegurar asientos contiguos en caso de comprar varios tickets simultáneamente.
+	* Métodos manuales para posicionar ventas de varios tickets de forma contigua en distintos sectores de la sala (izquierdo, derecho o central en salas de doble pasillo).
+	* Método totalmente manual para escoger fila y butaca de cada ticket comprado.
 
 * Sistema avanzado de muestra de la ocupación de las salas de cine.
 
@@ -37,18 +73,33 @@ Proyecto Java (jGRASP) desarrollado por José Antonio Yáñez Jiménez para IES 
 
 * Panel completo de administración desde el que poder modificar los valores por defecto de precios, descuentos y recargos, así como la disposición de las salas justo antes de lanzar la aplicación principal.
 
-* Rediseño de la ejecución inicial de la aplicación para adaptarla al nuevo diseño de menú inicial y panel de administración.
-
 * Sección de "acerca de" con información básica sobre el proyecto.
 
 * Gran implementación de gráficos mediante arte ascii.
 
 ## Historial de versiones
 
+### 1.0
+
+### Versión final.
+
+* Debug completo de la aplicación.
+
+* Limpieza de código y pruebas en busca de posibles errores.
+
+* Añadidos gráficos extra con arte ascii.
+
+* Documentación JavaDoc finalizada.
+
+* Añadido Wiki con manual de uso.
+
+* Mejora de los tickets
 
 ### 0.5
 
 ### Major Release.
+
+* Rediseño de la ejecución inicial de la aplicación para adaptarla al nuevo diseño de menú inicial y panel de administración.
 
 * Añadido menú de administración desde el que poder editar características del cine como los rellenos de salas y películas, los precios de las entradas, los precios de los suplementos y de descuentos.
 
@@ -72,9 +123,9 @@ Proyecto Java (jGRASP) desarrollado por José Antonio Yáñez Jiménez para IES 
 
 * Creado método nuevo para imprimir tablas avanzadas de beneficios y deducciones. Anteriormente se imprimia una tabla que agrupada los beneficios brutos, las deducciones y los beneficios totales de todas las películas. Con el nuevo sistema se diferencian 3 tipos de tablas:
 
-	1. Tabla que muestre los beneficios brutos por película
-	2. Tabla que muestre las deducciones por película
-	3. Tabla que muestre los beneficios netos por película
+	* Tabla que muestre los beneficios brutos por película
+	* Tabla que muestre las deducciones por película
+	* Tabla que muestre los beneficios netos por película
 
 * Desde el menú de recaudación podrá escogerse visualizar cada una de las tablas individualmente o todas en conjunción.
 

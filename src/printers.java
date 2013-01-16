@@ -1,9 +1,9 @@
-class Printers
 /**
 *Cinerama for IES Galileo
-*version 0.5
+*version 1.0
 *Author José Antonio Yáñez Jiménez
 */
+class Printers
 	{
 	/**
 	*Método que muestra el menú inicial
@@ -108,23 +108,27 @@ class Printers
 	public static int buyedTicket(String[] film,int roomnumber,int row,int col, int addonmode)
 		{
 		int ticketprize;
-		System.out.print("\n____________________________________________________________\n"); //60 lineas
-		System.out.printf("%1s%58s%1s","|"," ","|\n");
-		System.out.printf("%1s%-58s%1s","|","    Cinerama IES Galileo","|\n");
-		System.out.printf("%1s%-58s%1s","|","    ____________________","|\n");
-		System.out.printf("%1s%58s%1s","|"," ","|\n");
-		System.out.printf("%1s%-58s%1s","|","    Proyección:","|\n");
-		System.out.printf("%1s%-58s%1s","|","       "+film[0],"|\n");
+		System.out.print("\n __________________________________________________________ ___________ \n"); //72 lineas
+		System.out.printf("%1s%58s%1s%12s","|","*                              ",":","           |\n");
+		System.out.printf("%1s%58s%1s%8s%4s","|","***                             ",":",Utils.random(11111,99999),"   |\n");
+		System.out.printf("%1s%58s%1s%12s","|","***********                         ",":","\\ \\ \\ / / /|\n");
+		System.out.printf("%1s%58s%1s%12s","|","*********                          ",":","\\ \\ \\ / / /|\n");
+		System.out.printf("%1s%58s%1s%12s","|","**    *******    **                     ",":","\\ \\ \\ / / /|\n");
+		System.out.printf("%1s%58s%1s%12s","|","******    ***    ******                   ",":","\\ \\ \\ / / /|\n");
+		System.out.printf("%1s%58s%1s%12s","|","**     ****             ****    **              ",":","\\ \\ \\ / / /|\n");
+		System.out.printf("%1s%58s%1s%12s","|","******     Cinerama  Galileo    ******            ",":","\\ \\ \\ / / /|\n");
+		System.out.printf("%1s%58s%1s%12s","|"," ****      -----------------     ****             ",":","\\ \\ \\ / / /|\n");
+		System.out.printf("%1s%-58s%1s%12s","|","                 "+film[0],":","\\ \\ \\ / / /|\n");
 		if (film[1].equals("yes"))
 			{
-			System.out.printf("%1s%-58s%1s","|","       (Proyección en 3D)","|\n");
+			System.out.printf("%1s%-58s%1s%12s","|","                 (Proyección en 3D)",":","/ / / \\ \\ \\|\n");
 			}
 		else
 			{
-			System.out.printf("%1s%-58s%1s","|","       (Proyección en HD 2D)","|\n");
+			System.out.printf("%1s%-58s%1s%12s","|","                 (Proyección en HD 2D)",":","/ / / \\ \\ \\|\n");
 			}
-		System.out.printf("%1s%58s%1s","|"," ","|\n");
-		System.out.printf("%1s%-58s%1s","|","    Sala "+(roomnumber+1)+", Fila "+(row+1)+", Butaca "+(col+1),"|\n");
+		System.out.printf("%1s%58s%1s%12s","|"," ",":","/ / / \\ \\ \\|\n");
+		System.out.printf("%1s%-58s%1s%12s","|","    Sala "+(roomnumber+1)+", Fila "+(row+1)+", Butaca "+(col+1),":","/ / / \\ \\ \\|\n");
 		if (film[1].equals("yes"))
 			{
 			switch (addonmode)
@@ -133,30 +137,31 @@ class Printers
 			   case 2:
 				case 5:
 					ticketprize=((Cinerama.prizes[0]+Cinerama.prizes[1])-Cinerama.prizes[3]);
-					System.out.printf("%1s%4s%-54s%1s","|"," ","Descuento Carné Joven: "+Cinerama.prizes[3]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","    Precio: "+Cinerama.prizes[0]+" Euros.  Suplemento 3D: "+Cinerama.prizes[1]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+ticketprize+" Euros.","|\n");		      
+					System.out.printf("%1s%4s%-54s%1s%12s","|"," ","Descuento Carné Joven: "+Cinerama.prizes[3]+" Euros.",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","    Base: "+Cinerama.prizes[0]+" Euros.  Suplemento 3D: "+Cinerama.prizes[1]+" Euros.",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","                 TOTAL: "+ticketprize+" Euros.",":","/ / / \\ \\ \\|\n");;		      
 					break;
 				//Familia numerosa
 			   case 3:
 				case 6:
 					ticketprize=((Cinerama.prizes[0]+Cinerama.prizes[1])-Cinerama.prizes[4]);
-					System.out.printf("%1s%4s%-54s%1s","|"," ","Descuento Familia Numerosa: "+Cinerama.prizes[4]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","    Precio: "+Cinerama.prizes[0]+" Euros.  Suplemento 3D: "+Cinerama.prizes[1]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+ticketprize+" Euros.","|\n");		      
+					System.out.printf("%1s%4s%-54s%1s%12s","|"," ","Descuento Familia Numerosa: "+Cinerama.prizes[4]+" Euros.",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","    Base: "+Cinerama.prizes[0]+" Euros.  Suplemento 3D: "+Cinerama.prizes[1]+" Euros.",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","                 TOTAL: "+ticketprize+" Euros.",":","/ / / \\ \\ \\|\n");		      
 			      break;
 				//Gratuita
 				case 7:
 					ticketprize=0;
-					System.out.printf("%1s%4s%-54s%1s","|"," ","Entrada adquirida con promoción","|\n");
-					System.out.printf("%1s%-58s%1s","|","       ####ENTRADA GRATUITA####","|\n");
+					System.out.printf("%1s%4s%-54s%1s%12s","|"," ","Entrada adquirida con promoción",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%4s%-54s%1s%12s","|"," ","_______________________________",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","       ####ENTRADA GRATUITA####",":","/ / / \\ \\ \\|\n");
 					break;
 				//Simple
 			   default:
 					ticketprize=(Cinerama.prizes[0]+Cinerama.prizes[1]);
-					System.out.printf("%1s%4s%-54s%1s","|"," ","Entrada Estandar","|\n");
-					System.out.printf("%1s%-58s%1s","|","      Precio: "+Cinerama.prizes[0]+" Euros.  Suplemento 3D: "+Cinerama.prizes[1]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+ticketprize+" Euros.","|\n");
+					System.out.printf("%1s%4s%-54s%1s%12s","|"," ","Entrada Estandar",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","    Base: "+Cinerama.prizes[0]+" Euros.  Suplemento 3D: "+Cinerama.prizes[1]+" Euros.",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","                 TOTAL: "+ticketprize+" Euros.",":","/ / / \\ \\ \\|\n");
 			  		break;
 				}
 			}
@@ -164,35 +169,41 @@ class Printers
 			{
 			switch (addonmode)
 				{
+				//Carné joven
 			   case 2:
 				case 5:
 					ticketprize=(Cinerama.prizes[0]-Cinerama.prizes[3]);
-					System.out.printf("%1s%4s%-54s%1s","|"," ","Descuento Carné Joven: "+Cinerama.prizes[3]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","    Precio: "+Cinerama.prizes[0]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+ticketprize+" Euros.","|\n");		      
+					System.out.printf("%1s%4s%-54s%1s%12s","|"," ","Descuento Carné Joven: "+Cinerama.prizes[3]+" Euros.","|","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","    Base: "+Cinerama.prizes[0]+" Euros.",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","                 TOTAL: "+ticketprize+" Euros.",":","/ / / \\ \\ \\|\n");		      
 					break;
+				//Familia numerosa
 			   case 3:
 				case 6:
 					ticketprize=(Cinerama.prizes[0]-Cinerama.prizes[4]);
-					System.out.printf("%1s%4s%-54s%1s","|"," ","Descuento Familia Numerosa: "+Cinerama.prizes[4]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","    Precio: "+Cinerama.prizes[0]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+ticketprize+" Euros.","|\n");		      
+					System.out.printf("%1s%4s%-54s%1s%12s","|"," ","Descuento Familia Numerosa: "+Cinerama.prizes[4]+" Euros.","|","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","    Base: "+Cinerama.prizes[0]+" Euros.",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","                 TOTAL: "+ticketprize+" Euros.",":","/ / / \\ \\ \\|\n");		      
 			      break;
+				//Entrada gratuita
 				case 7:
 					ticketprize=0;
-					System.out.printf("%1s%4s%-54s%1s","|"," ","Entrada adquirida con promoción","|\n");
-					System.out.printf("%1s%-58s%1s","|","       ####ENTRADA GRATUITA####","|\n");
+					System.out.printf("%1s%4s%-54s%1s%12s","|"," ","Entrada adquirida con promoción",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%4s%-54s%1s%12s","|"," ","_______________________________",":","/ / / \\ \\ \\|\n");					
+					System.out.printf("%1s%-58s%1s%12s","|","       ####ENTRADA GRATUITA####",":","/ / / \\ \\ \\|\n");
 					break;
+				//Estándar
 			   default:
 					ticketprize=Cinerama.prizes[0];
-					System.out.printf("%1s%4s%-54s%1s","|"," ","Entrada Estandar","|\n");
-					System.out.printf("%1s%-58s%1s","|","      Precio: "+Cinerama.prizes[0]+" Euros.","|\n");
-					System.out.printf("%1s%-58s%1s","|","                 TOTAL: "+ticketprize+" Euros.","|\n");
+					System.out.printf("%1s%4s%-54s%1s%12s","|"," ","Entrada Estandar",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","    Base: "+Cinerama.prizes[0]+" Euros.",":","/ / / \\ \\ \\|\n");
+					System.out.printf("%1s%-58s%1s%12s","|","                 TOTAL: "+ticketprize+" Euros.",":","/ / / \\ \\ \\|\n");
 			  		break;
 				}
 			}
-		System.out.printf("%1s%58s%1s","|"," ","|\n");
-		System.out.print("|__________________________________________________________|"); //40 lineas
+		System.out.printf("%1s%58s%1s%12s","|"," ",":","/ / / \\ \\ \\|\n");
+		System.out.print("|      ¡Pruebe nuestra palomitas! ¡Le encantarán!          :  RECORTE  |\n");
+		System.out.print("|__________________________________________________________:___________|\n");
 		return ticketprize;
 		}
 	/**
@@ -314,13 +325,13 @@ class Printers
 	/**
 	*Método que muestra el menú de descuentos de venta
 	*/
-	public static void showAddonsMenu(int filmseats)
+	public static void showAddonsMenu(int filmseats, boolean showall)
 		{
 		System.out.print("\nEscoge entre una de las siguientes opciones:");
 		System.out.print("\n\t(1) Entrada Estándar");
 		System.out.print("\n\t(2) Descuento carné Joven ("+Cinerama.prizes[3]+" Eur.)");
 		System.out.print("\n\t(3) Descuento familia numerosa ("+Cinerama.prizes[4]+" Eur.)");
-		if (filmseats>1)
+		if (filmseats>1 & showall)
 			{
 			System.out.print("\n\t(4) Pagar todas como entrada Estándar");
 			System.out.print("\n\t(5) Pagar todas como descuento carné Joven ("+Cinerama.prizes[3]+" Eur.)");
@@ -832,7 +843,7 @@ class Printers
 	//TABLAS DE RESULTADOS FINANCIEROS//
 	////////////////////////////////////
 	////////////////////////////////////
-	/*
+	/**
 	*Método para imprimir la tabla de beneficios brutos
 	*La tabla utiliza las variables globales de Cinerama
 	*/
@@ -844,7 +855,7 @@ class Printers
 		System.out.print("\n====================================================================================================\n"); //100 caracteres
 		for (int i=0; i<Cinerama.films.length; i++)
 			{
-			System.out.printf("%-40s",Cinerama.films[i][0]);
+			System.out.printf("%-40s",Cinerama.films[i][0]+"("+Cinerama.filminfo[i][1]+" de "+Cinerama.filminfo[i][0]+")");
 			System.out.printf("%3s%17s"," | ",(Cinerama.films[i][1].equals("no"))?Cinerama.prizes[0]+"(2D)":(Cinerama.prizes[0]+Cinerama.prizes[1])+"(3D)");
 			System.out.printf("%3s%17s"," | ",Cinerama.filminfo[i][4]);
 			System.out.printf("%3s%17s"," | ",Cinerama.filminfo[i][7]+" Eur. ");
@@ -854,7 +865,7 @@ class Printers
 		System.out.print("====================================================================================================\n"); //100 caracteres
 		System.out.printf("%-80s%3s%17s","Beneficio bruto total"," | ",bruteprofit+" Eur. ");
 		}
-	/*
+	/**
 	*Método para imprimir la tabla de deducciones
 	*La tabla utiliza las variables globales de Cinerama
 	*/
@@ -866,7 +877,7 @@ class Printers
 		System.out.print("\n====================================================================================================\n"); //100 caracteres
 		for (int i=0; i<Cinerama.films.length; i++)
 			{
-			System.out.printf("%-40s",Cinerama.films[i][0]);
+			System.out.printf("%-40s",Cinerama.films[i][0]+"("+Cinerama.filminfo[i][1]+" de "+Cinerama.filminfo[i][0]+")");
 			System.out.printf("%3s%10s"," | ",Cinerama.filminfo[i][6]);
 			System.out.printf("%3s%10s"," | ",Cinerama.filminfo[i][5]);
 			System.out.printf("%3s%11s"," | ",Cinerama.filminfo[i][3]);
@@ -877,7 +888,7 @@ class Printers
 		System.out.print("====================================================================================================\n"); //100 caracteres
 		System.out.printf("%-80s%3s%17s","Deducciones totales"," | ",discount+" Eur. ");
 		}
-	/*
+	/**
 	*Método para imprimir la tabla de beneficios netos.
 	*La tabla utiliza las variables globales de Cinerama.
 	*/
@@ -889,7 +900,7 @@ class Printers
 		System.out.print("\n====================================================================================================\n"); //100 caracteres
 		for (int i=0; i<Cinerama.films.length; i++)
 			{
-			System.out.printf("%-40s",Cinerama.films[i][0]);
+			System.out.printf("%-40s",Cinerama.films[i][0]+"("+Cinerama.filminfo[i][1]+" de "+Cinerama.filminfo[i][0]+")");
 			System.out.printf("%3s%17s"," | ",Cinerama.filminfo[i][7]+" Eur. ");
 			System.out.printf("%3s%17s"," | ",Cinerama.filminfo[i][8]+" Eur. ");
 			System.out.printf("%3s%17s"," | ",Cinerama.filminfo[i][9]+" Eur. ");
@@ -956,6 +967,14 @@ class Printers
 		System.out.print("          |                                                           |                     \n"); //92 líneas
 		System.out.printf("%12s","    (6)   | ");
 		System.out.printf("%-56s%4s","Cambiar descuento por defecto de familia numerosa","  | ");
-		System.out.printf("%18s%2s",Cinerama.prizes[4]+" Euros.","  \n\n");
+		System.out.printf("%18s%2s",Cinerama.prizes[4]+" Euros.","  \n");
+		///////////////////////////////////////////////////////////
+		////////////    SALTO DE FILA /////////////////////////////
+		///////////////////////////////////////////////////////////
+		System.out.print("__________|___________________________________________________________|_____________________\n"); //92 líneas
+		System.out.print("          |                                                           |                     \n"); //92 líneas
+		System.out.printf("%12s","    (7)   | ");
+		System.out.printf("%-56s%4s","Cambiar código promocional de entradas gratuitas","  | ");
+		System.out.printf("%18s%2s",Easter.promocode,"  \n\n");
 		}
 	}

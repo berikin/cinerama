@@ -1,7 +1,7 @@
 /**
 *Clase que contiene métodos reutilizables a lo largo
 *de toda la aplicación
-*@version 0.4
+*@version 1.0
 *@author José Antonio Yáñez Jiménez
 */
 class Utils

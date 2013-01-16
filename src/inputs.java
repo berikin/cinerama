@@ -1,6 +1,6 @@
 /**
 *Clase que contiene los métodos que solicitan entradas por teclado
-*@version 0.4
+*@version 1.0
 *@author José Antonio Yáñez Jiménez
 */
 public class Inputs
@@ -12,6 +12,12 @@ public class Inputs
 	*que pasarla por los distintos métodos como parámetro.
 	*/
 	public static int option;
+	/**
+	*Método que muestra el menú inicial.
+	*Desde el menú inicial podemos acceder al menú de 
+	*administración, lanzar la pantalla "acerca de" y lanzar
+	*el menú principal
+	*/
 	public static void firstMenu()
 		{
 		int firstopt=0;
@@ -31,7 +37,8 @@ public class Inputs
 				switch (firstopt)
 					{
 					case 3:
-						Printers.showInfo("\n\n                MMM=~==================NMMM\n             MMD========+===MMMMMMN=~======MM\n          MMN~=============~MMMMMMMMMMMM~=====MM\n        MM======MMM==========MMMMMMMMMMMMM~=====MM\n      MMO=====MMMMMM==========MMMMMMMMMMMI========MM\n     MM====~MMMMMMMMM=========MMMMMMMMMM============M\n    MM====MMMMMMMMMMM~=========MMMMMMMO=============~M\n   M====~MMMMMMMMMMMMM==========7MMMM~==========MMM===M\n  M+====MMMMMMMMMMMMMMM===========~~===========MMMMM===M\n MM====MMMMMMMMMMMMMMMN======================~MMMMMMM===M\nMM======~==DNMMMMMMMM8=======================MMMMMMMMM===M\nM==================~========================MMMMMMMMMMM===M\n$==========NMMD~==~=========================MMMMMMMMMMM+==M\n===~=~+=====M=====~==M=======================MMMMMMMMMMM===M\n============MM8===================================MMMMMM===M\n=====================OO===================MM============~==M\n====MMMMMMMM?~=~==================+=======M======+MMI======~\n====MMMMMMMMMMMMMM=========================MN=~~======~=====\n====MMMMMMMMMMMMMMM==============================~8MN+~=====\n====MMMMMMMMMMMMMMM==========================~==============\n====MMMMMMMMMMMMMMM====MMM=M=========M=====$MMMMMMMMMM=====M\n=====MMMMMMMMMMMMM====O===8~========M=M====MMMMMMMMMMMMM===M\nM====MMMMMMMMMMM~===8====M=========M=======MMMMMMMMMMMMM===M\nM=====MMMMMMMMM====M===================D===MMMMMMMMMMMM===8M\nMM====?MMMMMM8====?===M~===7MMMM====N===M===MMMMMMMMMM====M\n MM====DMMMM====M===~M====MMMMMMMN===M~=====MMMMMMMMMM===MM\n  M======MM===~M========+MMMMMMMMM=======Z===MMMMMMM7===+M\n  MM==============M====MMMMMMMMMMMM~==D===$===MMMMM~====M\n   MM~======N~===N~===MMMMMMMMMMMMM====N======MMMM~====M\n    MM+========+====IMMMMMMMMMMMMMMM~====~=M===M~====+M\n     MMM===========MMMMMMMMMMMMMMMMMM===M~==========MM\n      MMM==========MMMMMMMMMMMMMMMMMM====+========OM\n        MMM==========MMMMMMMMMMMMMMMMD==========NM\n          MMM===========~==7MMMMMZI=~========~MM\n            MMMM===========================MMM\n               MMMMM+================~=NMMM\n                 MMMMMMMMMMN====MMMMMMM\n");
+						Printers.showInfo("NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\nNNNNN/     \\NNNNN/     \\NNNNN/     \\NNNNN/     \\NNNN/     \\NNNNN/     \\NNNNN/     \\NNNN/     \\NNNNNN\nNNNNN       NNNNN       NNNNN       NNNNN       NNNN       NNNNN       NNNNN       NNNN       NNNNNN\nNNNNN       NNNNN       NNNNN       NNNNN       NNNN       NNNNN       NNNNN       NNNN       NNNNNN\nNNNNN       NNNNN       NNNNN       NNNNN       NNNN       NNNNN       NNNNN       NNNN       NNNNNN\nNNNNN\\     /NNNNN\\     /NNNNN\\     /NNNNN\\     /NNNN\\     /NNNNN\\     /NNNNN\\     /NNNN\\     /NNNNNN\nNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\nNNNNN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~NNNNNN\nNNNNN~=====================+=~===============================================================~NNNNNN\nNNNNN~================7NNNN8INNN7:===========================================================~NNNNNN\nNNNNN~==============~DN8NNN===8NNN~==========================================================~NNNNNN\nNNNNN~=============?N$=~~8NNNNNNNNN~=========================================================~NNNNNN\nNNNNN~=============NNN~=8N8NNNZ===NN=========================================================~NNNNNN\nNNNNN~============?NNNNNNNN88NN~=NNN=========================================================~NNNNNN\nNNNNN~==NNN8~=====7N===8NN=N?N8ONNND=========================================================~NNNNNN\nNNNNN$NNN~=~NN+~===N~=INN8INN~===NN==========================================================~NNNNNN\nNNNNNN==DNNNNNN====?NNNN~===NN=~NN~=====================================        =============~NNNNNN\nNNNNNNNNNN+N=~N8====~NNNN~IDNNNN8==~I==================?N8=~========                =========~NNNNNN\nNNNNN~=NNONN~NNI=======7NNNNN$7NNNNNNNI============~:NNNNNN======     Cinerama 1.0     ======~NNNNNN\nNNNNNNN8~=N~=NN=======~NNNNNNNNNNNNNNN8==========~8NNNNNNNNN=====  José Antonio Yáñez  ======~NNNNNN\nNNNNN$NN~ZNNNN======$NNNNNNNNNNNNNNNNNN~=======~DNNNNNNNNNNN=====      Enero 2013      ======~NNNNNN\nNNNNN~==7NNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$~====ZNNNNNNNNNNNNNNN=======                =========~NNNNNN\nNNNNN~=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN+NNNNNNNNNNNNNNNNNN===========        =============~NNNNNN\nNNNNN~NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN===============================~NNNNNN\nNNNNN~=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN==============================~NNNNNN\nNNNNN~=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN==============================~NNNNNN\nNNNN8~=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN==============================~NNNNNN\nNNNN8~==NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN===============================================~NNNNNN\nNNNN8~===NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN================================================~NNNNNN\nNNNN8~===NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN================================================~NNNNNN\nNNNNO~====NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN===============================================~NNNNNN\nNNNN$~====NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMM==============================================~NNNNNN\nNNNN$~=====NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNM===============================================~NNNNNN\nNNNN$~=====NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN===================================================~NNNNNN\nNNNN$~======NNNNNNNNNNNNNNNNNNNNNNN==========================================================~NNNNNN\nNNNNN~=======NNNNNNNNNNNNNNNNN===============================================================~NNNNNN\nNNNNN~~~~~~~~~~NNNNNNNNNNNNN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~NNNNNN\nNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\nNNNNN/     \\NNNNN/     \\NNNNN/     \\NNNNN/     \\NNNN/     \\NNNNN/     \\NNNNN/     \\NNNN/     \\NNNNNN\nNNNNN       NNNNN       NNNNN       NNNNN       NNNN       ZNNND       NNNNN       NNNN       NNNNNN\nNNNNN       NNNNN       NNNNN       NNNNN       NNNN       8NNNO       NNNNN       NNNN       NNNNNN\nNNNNN       NNNNN       NNNNN       NNNNN       NNNN       NNNNN       NNNNN       NNNN       NNNNNN\nNNNNN\\     /NNNNN\\     /NNNNN\\     /NNNNN\\     /NNNN\\     /NNNND\\     /NNNNN\\     /NNNN\\     /NNNNNN\nNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\n");
+						Utils.pause(1500);
 						Printers.showInfo("\nCinerama es una aplicación desarrollada en Java utilizando el IDE\njGRASP por José Antonio Yáñez Jiménez como proyecto de navidades\ndel curso 2012-2013 de Desarrollo de aplicaciones Web en el centro\nIES Galileo de Valladolid.\n\nLa peculiaridad del proyecto radica en\nla restricción del uso de Java como un lenguaje de objetos, por lo\nque no se pueden realizar llamadas a ficheros externos ni crear\nobjetos (salvo por las matrices).\n\n\nVersión 1.0, Enero de 2013.\n");
 				  		Printers.showInfo("\nPulsa intro para volver al menú");
 						Utils.returnPause(); 	
@@ -39,7 +46,7 @@ public class Inputs
 					case 1:
 				      showadmin=adminMenu();
 						break;
-					case 2:
+					case 2: //LANZAMOS LA APLICACIÓN
 				      switch (Cinerama.samplenum)
 							{
 						   case 1:
@@ -68,6 +75,9 @@ public class Inputs
 				}
 			}while(1==1);
 		}
+	/**
+	*Método que muestra el menú de administración
+	*/
 	public static boolean adminMenu()
 		{
 		String[] access={"admin","admin"};
@@ -93,7 +103,7 @@ public class Inputs
 					Printers.showInfo("\nEscoge una opción a modificar (Pulsa 0 para salir del menú de administración)\n\n");
 					Printers.showAdminTable();
 					admoption=Kread.readInt();
-					if (admoption<0 || admoption>6)
+					if (admoption<0 || admoption>7)
 						{
 						Printers.showInfo("\nEscogiste una opción no válida, prueba de nuevo");
 						Utils.pause(2000);
@@ -119,6 +129,9 @@ public class Inputs
 						      break;
 						   case 6:
 								Replaces.replaceAdm("\nNuevo descuento para familia numerosa (1-6): ", 4, 1, 6);
+						      break;
+						   case 7:
+								Replaces.replacePromo("\nNuevo código promocional\n(El código que introduzcas será automáticamente pasado a mayúsculas): ");
 						      break;
 							default: //SALIDA
 								return true;
@@ -251,7 +264,7 @@ public class Inputs
 			do
 				{
 				Printers.showLogo();
-				Printers.showInfo("\nPelícula para sala "+(i+1)+" de "+rooms+" ("+Cinerama.filminfo[i][0]+"plazas)");
+				Printers.showInfo("\nPelícula para sala "+(i+1)+" de "+rooms+" ("+Cinerama.filminfo[i][0]+" plazas)");
 				Printers.showInfo("\n__________________________________________");
 				Printers.showInfo("\nEscoge el tipo de proyección:");
 				Printers.showInfo("\n\t(1) 3D");
@@ -272,7 +285,7 @@ public class Inputs
 				do
 					{
 					Printers.showLogo();
-					Printers.showInfo("\nPelícula para sala "+(i+1)+" de "+rooms+" ("+Cinerama.filminfo[i][0]+"plazas)");
+					Printers.showInfo("\nPelícula para sala "+(i+1)+" de "+rooms+" ("+Cinerama.filminfo[i][0]+" plazas)");
 					Printers.showInfo("\n__________________________________________");
 					Printers.showInfo("\nEscoge entre el listado de películas:");
 					for (int j=0; j<Constructors.AVAILABLE3D; j++)
@@ -297,7 +310,7 @@ public class Inputs
 				do
 					{
 					Printers.showLogo();
-					Printers.showInfo("\nPelícula para sala "+(i+1)+" de "+rooms+" ("+Cinerama.filminfo[i][0]+"plazas)");
+					Printers.showInfo("\nPelícula para sala "+(i+1)+" de "+rooms+" ("+Cinerama.filminfo[i][0]+" plazas)");
 					Printers.showInfo("\n__________________________________________");
 					Printers.showInfo("\nEscoge entre el listado de películas:");
 					for (int j=0; j<Constructors.FILMS_AVAILABLE.length; j++)
@@ -582,14 +595,14 @@ public class Inputs
 		}
 	/**
 	*Método que gestiona la forma de comprar entradas.
-	*Recibe por parámetro el método escogido que puede ser:
-	*	1-Ordenación aleatoria sin tener en cuenta asientos contiguos.
-	*	2-Ordenación manual de cada ticket escogiendo fila y butaca.
-	*	3-Ordenación en la zona izquierda (pasillo simple) de la sala escogiendo fila.
-	*	4-Ordenación en la derecha (pasillo simple) de la sala escogiendo fila.
-	*	5-Ordenación en la zona izquierda (pasillo doble) de la sala escogiendo fila.
-	*	6-Ordenación en la zona central (pasillo doble) de la sala escogiendo fila.
-	*	7-Ordenación en la zona derecha (pasillo doble) de la sala escogiendo fila.
+	*Recibe por parámetro el método escogido que puede ser:<br>
+	*&nbsp;&nbsp;&nbsp;&nbsp;1-Ordenación aleatoria sin tener en cuenta asientos contiguos.<br>
+	*&nbsp;&nbsp;&nbsp;&nbsp;2-Ordenación manual de cada ticket escogiendo fila y butaca.<br>
+	*&nbsp;&nbsp;&nbsp;&nbsp;3-Ordenación en la zona izquierda (pasillo simple) de la sala escogiendo fila.<br>
+	*&nbsp;&nbsp;&nbsp;&nbsp;4-Ordenación en la derecha (pasillo simple) de la sala escogiendo fila.<br>
+	*&nbsp;&nbsp;&nbsp;&nbsp;5-Ordenación en la zona izquierda (pasillo doble) de la sala escogiendo fila.<br>
+	*&nbsp;&nbsp;&nbsp;&nbsp;6-Ordenación en la zona central (pasillo doble) de la sala escogiendo fila.<br>
+	*&nbsp;&nbsp;&nbsp;&nbsp;7-Ordenación en la zona derecha (pasillo doble) de la sala escogiendo fila.<br>
 	*@param room Sala de cine a la sobre la que trabajaremos
 	*@param filmseats Número de asientos a ocupar
 	*@param ordertype Método de ordenación elegido por el cliente
@@ -727,6 +740,9 @@ public class Inputs
 				break;
 				}
 			} while (1==1);
+		//////////////////////////////////////////
+		//               GAFAS 3D               //
+		//////////////////////////////////////////
 		if (Cinerama.films[option][1].equals("yes"))
 			{
 			glasses3D(filmseats,option);
@@ -739,7 +755,22 @@ public class Inputs
 			Replaces.replaceArray(room, row, i, option); //Modificamos el array de la sala
 			if (addonmode!=4 & addonmode!=5 & addonmode!=6)
 				{
-				addonmode=Inputs.addons(filmseats);
+				//////////////////////////////////////////////////////////
+				//Si i es 0 nos encontramos en la primera pasada,       //
+				//por lo que debemos mostrar todas las opciones.        //
+				//Pero si no lo es y llegamos a este punto es porque    //
+				//ya se ha elegido un método de descuento no combinado, //
+				//por lo que ya no debemos mostrar las opciones de      // 
+				//método de descuento combinado                         //
+				//////////////////////////////////////////////////////////
+				if (i==0)
+					{
+					addonmode=Inputs.addons(filmseats,true);
+					}
+				else
+					{
+					addonmode=Inputs.addons(filmseats,false);
+					}
 				}
 			////////////////////////////
 			//Método de pago combinado//
@@ -854,6 +885,13 @@ public class Inputs
 				}
 			} while (1==1);
 		Replaces.replaceArray(room, row, col, option); //Modificamos el array de la sala
+		//////////////////////////////////////////
+		//               GAFAS 3D               //
+		//////////////////////////////////////////
+		if (Cinerama.films[option][1].equals("yes"))
+			{
+			glasses3D(1,option);
+			}
 		////////////////////////////////////////////////////
 		//  Si estamos regalando la entrada asignamos el  //
 		//número correspondiente sin preguntar al usuario)//
@@ -864,25 +902,25 @@ public class Inputs
 			}
 		else
 			{
-			addonmode=Inputs.addons(1);
+			addonmode=Inputs.addons(1,false);
 			}
 		Printers.buyedTicket(Cinerama.films[option], option, row, col,addonmode); //Imprimimos el ticket de venta
 		return 1;
 		}
-	/*
+	/**
 	*Método para administrar descuentos en los tickets de venta
 	*Se activa en el momento inmediatamente anterior a la impresión del ticket
 	*Se pregunta si se desea una entrada estándar, una con descuento por carné joven
 	*o una con descuento por familia numerosa. El precio varía en función del tipo de ticket
-	*@return 1->Estándar ind., 2->C. joven ind, 3->F. Núm. ind., 4->Estándar grupo,
-	*5->C. Joven grupo,6-> F. Núm. grupo.
+	*@return 1->Estándar ind.<br> 2->C. joven ind<br> 3->F. Núm. ind.<br> 4->Estándar grupo<br>
+	*5->C. Joven grupo<br>6-> F. Núm. grupo.
 	*/	
-	public static int addons(int filmseats)
+	public static int addons(int filmseats, boolean showall)
 		{
 		int addonopt;
 		do
 			{
-			Printers.showAddonsMenu(filmseats);
+			Printers.showAddonsMenu(filmseats, showall);
 			addonopt=Kread.readInt();
 			if (addonopt<1 || (addonopt>6 & filmseats>1) || (addonopt>3 & filmseats<2))
 				{
@@ -914,7 +952,7 @@ public class Inputs
 				return 1;
 			}
 		}
-	/*
+	/**
 	*Método para administrar el modo de pago
 	*Actualmente el pago de entradas puede realizarse de forma individual
 	*o unificando todo el pago a la vez. Este método se invoca cuando se compran
@@ -940,7 +978,7 @@ public class Inputs
 				}
 			} while (1==1);
 		}
-	/*
+	/**
 	*Método para comprar gafas 3D cuando la proyección es 3D
 	*Se consulta al usuario si desea algún par de gafas 3D. Puede escogerse 
 	*la opción 0 para no comprar nada o hasta un máximo de pares equivalente
@@ -966,10 +1004,16 @@ public class Inputs
 				if (glassesopt!=0)
 					{
 					Printers.showInfo(glassesascii);
-					Printers.showInfo("\nRecoja sus "+glassesopt+" pares de gafas. Son "+(Cinerama.prizes[2]*glassesopt)+" Euros.");
+					Printers.showInfo("\nRecoja ");
+					Printers.showInfo((glassesopt>1)?"sus":"su par");
+					Printers.showInfo((glassesopt>1)?" "+glassesopt+" ":"");
+					Printers.showInfo((glassesopt>1)?"pares":"");
+					Printers.showInfo(" de gafas. Abone "+(Cinerama.prizes[2]*glassesopt));
+					Printers.showInfo(((Cinerama.prizes[2]*glassesopt)>1)?" Euros.":" Euro.");
 					Utils.returnPause();
 					return;
 					}
+				return;
 				}
 			} while (1==1);
 		}

@@ -2,7 +2,7 @@
 *Clase que contiene los métodos que generan
 *Salas de cine de muestra, peliculas de muestra
 *y rellenan asientos con público de muestra
-*@version 0.4
+*@version 1.0
 *@author José Antonio Yáñez Jiménez
 */
    class Samples
